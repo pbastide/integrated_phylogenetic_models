@@ -1,0 +1,116 @@
+<phyrex run.id="ibm" output.file="WNV" mcmc.chain.len="1E+3" mcmc.sample.every="1E+2"
+        mcmc.print.every="1E+3" mcmc.burnin="1E+2" mutmap="no" ignore.sequences="yes">
+
+  <!-- Model of variation of spatial diffusion across lineages -->
+  <spatialmodel name="ibm" 
+  				rw.prior.distrib="exponential" rw.prior.mean="10."
+                sampling="detection" integrateAncestralLocations="true"
+                distance.type="greatcircle"
+                observational.model="no"
+                rw.root.var="0.1">
+  </spatialmodel>
+
+  
+  <!-- Model of substitution rate variation across lineages -->
+  <!-- <lineagerates model="lognormal" autocor.prior.rate="100"/> -->
+  <lineagerates model="strictclock"/>
+
+    <!-- Tree model -->
+  <treegenerating model="coalescent" neff.prior.mean="1." fix.neff="yes" expgrowth="no" fix.node.ages="yes"/>
+  <!-- <treegenerating model="coalescent" neff.prior.distrib="flat" fix.node.ages="no"/> -->
+
+  <!-- <clockrate prior.mean="0.001" prior.var="1."/> -->
+  <clockrate init.value="4.E-4" opt.clock="no"/>
+
+  
+  <!-- Tree topology -->
+  <topology> 
+    <!-- <instance id="T1" init.tree="BioNJ"/> -->
+    <instance id="T1" init.tree="user" file.name="./../../data/WNV_phy_fourtip.nwk" optimise.tree="no" edge.lengths="calendar"/>
+  </topology>
+  
+  
+  <!-- Substitution model -->
+  <ratematrices id="RM1">
+    <instance id="M1" model="HKY85" optimise.tstv="yes"/>
+  </ratematrices>
+
+  
+  <!-- Gamma model of variation of rates across sites -->
+  <siterates id="SR1">
+    <instance id="R1" init.value="1.0"/>
+    <!-- <instance id="R2" init.value="1.0"/> -->
+    <!-- <instance id="R3" init.value="1.0"/> -->
+    <weights  id="D1" family="freerates" >
+      <instance appliesto="R1" value="0.25"/>
+      <!-- <instance appliesto="R2" value="0.25"/> -->
+      <!-- <instance appliesto="R3" value="0.25"/> -->
+    </weights>
+  </siterates>
+
+
+  <!-- Nucleotide frequencies -->
+  <equfreqs id="EF1">
+    <instance id="F1" optimise.freqs="no"/>
+  </equfreqs>
+
+
+  <!-- Vector of edge lengths -->
+  <branchlengths id="BL1" >
+    <instance id="L1" optimise.lens="no"/>
+  </branchlengths>
+
+  <!-- Model assembly -->
+  <partitionelem id="partition1" file.name="./../../data/WNV_fourtip.phy" data.type="nt" interleaved="no">
+    <mixtureelem list="T1"/>
+    <mixtureelem list="M1"/>
+    <mixtureelem list="F1"/>
+    <mixtureelem list="R1"/>
+    <mixtureelem list="L1"/>
+    <!-- <mixtureelem list="T1,T1,T1"/> -->
+    <!-- <mixtureelem list="M1,M1,M1"/> -->
+    <!-- <mixtureelem list="F1,F1,F1"/> -->
+    <!-- <mixtureelem list="R1,R2,R3"/> -->
+    <!-- <mixtureelem list="L1,L1,L1"/> -->
+  </partitionelem>
+
+
+  <coordinates id="coordinates" file.name="./../../data/WNV_lat_long_fourtip.txt"/>
+
+  <clade id="clad11">
+    <taxon value="WG091_Hs_2004.66"/>
+  </clade>
+  <calibration id="cal11">
+    <lower>9.272</lower>
+    <upper>9.272</upper>
+    <appliesto clade.id="clad11"/>
+  </calibration>
+
+  <clade id="clad19">
+    <taxon value="DQ983578_Cn_2003"/>
+  </clade>
+  <calibration id="cal19">
+    <lower>7.611</lower>
+    <upper>7.611</upper>
+    <appliesto clade.id="clad19"/>
+  </calibration>
+
+  <clade id="clad86">
+    <taxon value="DQ080053_Ct_2003"/>
+  </clade>
+  <calibration id="cal86">
+    <lower>7.612</lower>
+    <upper>7.612</upper>
+    <appliesto clade.id="clad86"/>
+  </calibration>
+
+  <clade id="clad96">
+    <taxon value="AY289214_Hs_2002.62"/>
+  </clade>
+  <calibration id="cal96">
+    <lower>7.230</lower>
+    <upper>7.230</upper>
+    <appliesto clade.id="clad96"/>
+  </calibration>
+  
+</phyrex>

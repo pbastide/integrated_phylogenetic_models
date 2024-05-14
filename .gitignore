@@ -1,6 +1,7 @@
 # R files
 *.Rhistory
 *.RData
+*.RDS
 *.Rout
 *.rdb
 *.rdx
@@ -60,4 +61,8 @@
 # Specific Files
 .Rproj.user
 .local.vimrc
-
+# log files
+*.trees
+*phyrex_stats_ibm.txt
+*phyrex_tree_ibm.txt
+*[1-9].xml
