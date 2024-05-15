@@ -1,9 +1,7 @@
 
+# Predicting WNV dispersion
 
-
-# Get PhyML from GitHub with tag "WNV_predictions"
-
-Compile `test` (rename to `predict`) and run the following: `python3 ./predict_cleanup.py`. Alternatively, you may use the code below: 
+Get PhyML from GitHub with tag "WNV_predictions". Compile `test` (rename to `predict`) and run the following: `python3 ./predict_cleanup.py`. Alternatively, you may use the code below: 
 
 ```
 ./predict -u ./2000/WNV_2000_phyrex_tree_ibm.txt --xml=./2000/WNV_phyrex_2000.xml 2000 1999 0.2 > ./2000/raw_predict
