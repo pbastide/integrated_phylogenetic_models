@@ -89,7 +89,7 @@ colnames(estim_both) <- c("parameter", "ESS", "ESS/s", "mean", "95\\% HPDI", "ES
 library(kableExtra)
 estim_both %>%
   kable("latex", digits = 2, escape = F, align = "r", booktabs = T, linesep = "") %>%
-  add_header_above(c(" ", "phyrex" = 4, "beast" = 4))
+  add_header_above(c(" ", "PhyREX" = 4, "BEAST" = 4))
 
 ###############################################################################
 ## ESS per seconds densities of all node and tip velocities
@@ -100,8 +100,8 @@ estimbeastveloc <- subset(mean_estim_beast, grepl(".1$|.2$", parameter) & !grepl
 # check dimention
 stopifnot(all(dim(estimphyrexveloc) == dim(estimbeastveloc)))
 # format
-estimphyrexveloc$method <- "phyrex"
-estimbeastveloc$method <- "beast"
+estimphyrexveloc$method <- "PhyREX"
+estimbeastveloc$method <- "BEAST"
 velocplot <- rbind(estimphyrexveloc, estimbeastveloc)
 # plot
 p <- ggplot(velocplot, aes(x = esspersec, color = method, fill = method)) +

@@ -81,11 +81,13 @@ plot_process_on_tree <- function(dftree) {
   endPoints <- endPoints[endPoints$edge %in% which(tree$edge[, 2] <= 5), ]
   p <-
     ggplot(dftree, aes(x, y, color = as.factor(edge))) +
-    geom_path(linewidth = 1) + 
+    geom_path(linewidth = 1) +
     coord_fixed(ratio = 1) +
     # geom_point(data = endPoints, size = 5) +
     theme_bw() +
-    scale_color_manual(values = c("black", col_orig), guide = "none")
+    scale_color_manual(values = c("black", col_orig), guide = "none") +
+    xlab("x (longitude)") + ylab("x (latitude)") +
+    theme(aspect.ratio=1)
   # theme(panel.grid = element_blank(),
   #       axis.text.x = element_blank(),
   #       axis.text.y = element_blank(),
@@ -98,7 +100,7 @@ plot_process_on_tree_bis <- function(dftree) {
   dftree$x <- dftree$vx
   dftree$y <- dftree$vy
   p <- plot_process_on_tree(dftree)
-  p <- p + xlab("x velocity") + ylab("y velocity")
+  p <- p + xlab("y (longitude)") + ylab("y (latitude)")
 }
 
 ##############################################################################
@@ -243,7 +245,9 @@ pIOU
 ##############################################################################
 
 bottom_row <- plot_grid(pBM, pOU, pIBM, pIOU,
-                        labels = paste0("(", letters[4:8], ")"), label_size = 12, nrow = 1)
+                        labels = paste0("(", letters[4:8], ")"),
+                        label_size = 12, nrow = 1,
+                        align = "v")
 top_row <- plot_grid(ggdraw(ptree), pBMveloc, pOUveloc,
                      labels = paste0("(", letters[1:3], ")"), label_size = 12, nrow = 1,
                      rel_widths = c(2, 1, 1))
@@ -252,7 +256,7 @@ p
 
 library(here)
 twocolumnwidth <- 10
-ggsave(filename = here("plots", "trajectories_process_and_tree.pdf"),
+ggsave(filename = here("simulation_plots", "trajectories_process_and_tree.pdf"),
        plot = p,
        width = twocolumnwidth,
        height = twocolumnwidth / 2,
