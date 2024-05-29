@@ -1,4 +1,4 @@
-# Phyrex vs BEAST on a fixed tree
+# Phyrex vs BEAST implementations
 
 The files in this repository compare the results of phyrex and beast on a 
 fixed tree, with data from [Pybus et al. 2012](www.doi.org/10.1073/pnas.1206598109).
