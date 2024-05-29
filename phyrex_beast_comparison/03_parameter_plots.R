@@ -79,8 +79,8 @@ logbeast$parameter <- factor(logbeast$parameter)
 ###############################################################################
 
 # correspondence of names
-names_phyrex_beast <- data.frame(phyrex = c("sigSqLat", "sigSqLon", "rootLat", "rootLon", "root_VelocLat", "root_VelocLon"),
-                                 beast = c("location.variance.diagonal1", "location.variance.diagonal2", "location.207.3", "location.207.4", "location.207.1", "location.207.2"))
+names_phyrex_beast <- data.frame(phyrex = c("sigSqLat", "sigSqLon", "rootLat", "rootLon", "root_VelocLat", "root_VelocLon", "rootTime"),
+                                 beast = c("location.variance.diagonal1", "location.variance.diagonal2", "location.207.3", "location.207.4", "location.207.1", "location.207.2", "age.root."))
 
 logphyrexpar <- subset(logphyrex, parameter %in% names_phyrex_beast$phyrex)
 logbeastpar <- subset(logbeast, parameter %in% names_phyrex_beast$beast)
@@ -144,6 +144,41 @@ ggsave(filename = file.path(here_dir, "results", paste0("root_beast_phyrex", ".p
        plot = p,
        width = columnwidth,
        height = columnwidth,
+       unit = "in")
+
+logparam <- subset(logall, parameter %in% c("sigSqLat", "sigSqLon", "rootLat", "rootLon", "root_VelocLat", "root_VelocLon"))
+logparam$pos <- "longitude"
+logparam$pos[grepl("Lat", logparam$parameter)] <- "lattitude"
+logparam$param_plot <- "Root Position"
+logparam$param_plot[grepl("root_Veloc", logparam$parameter)] <- "Root Velocity"
+logparam$param_plot[grepl("sigSq", logparam$parameter)] <- "IBM Variance"
+
+p <- ggplot(logparam, aes(x = value, color = method, fill = method)) +
+  geom_density(alpha = 0.2) +
+  ggh4x::facet_grid2(cols = vars(param_plot), rows = vars(pos), scales = "free", independent = "x", switch = "x") +
+  # facet_wrap(vars(pos, param_plot), scales = "free", strip.position = "right") +
+  theme_bw() +
+  xlab("") +
+  scale_color_viridis_d(name = element_blank(), option = "inferno", begin = 0.8, end = 0.1) +
+  scale_fill_viridis_d(name = element_blank(), option = "inferno", begin = 0.8, end = 0.1) +
+  theme(text = element_text(size = 10),
+        # title = element_text(size = 7),
+        # panel.grid.minor = element_blank(),
+        legend.position = "inside",
+        legend.position.inside = c(0.31, 0.42),
+        legend.justification = c("right", "top"),
+        legend.key.size = unit(10, 'pt'),
+        strip.placement = "outside",
+        strip.background = element_blank(),
+        # plot.margin = unit(c(0.1,0.1,-0.31,-0.5), "cm"),
+        # axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)
+  )
+p
+
+ggsave(filename = file.path(here_dir, "results", paste0("parameters_beast_phyrex_all", ".pdf")),
+       plot = p,
+       width = columnwidth,
+       height = columnwidth/2,
        unit = "in")
 
 ###############################################################################
