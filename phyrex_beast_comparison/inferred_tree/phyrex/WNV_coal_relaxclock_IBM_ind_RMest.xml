@@ -21,7 +21,7 @@
   <treegenerating model="coalescent" neff.prior.mean="1." fix.neff="no" expgrowth="no" fix.node.ages="no"/>
   <!-- <treegenerating model="coalescent" neff.prior.distrib="flat" fix.node.ages="no"/> -->
 
-  <clockrate init.value="4.E-4" opt.clock="yes" prior.mean="0.001" prior.var="1."/>
+  <clockrate init.value="4.E-4" opt.clock="yes" prior.mean="0.001" prior.var="0.01"/>
 <!--   <clockrate init.value="4.E-4" opt.clock="no"/> -->
 
   
@@ -68,7 +68,7 @@
 
   <!-- Vector of edge lengths -->
   <branchlengths id="BL1" >
-    <instance id="L1" optimise.lens="no"/>
+    <instance id="L1" optimise.lens="yes"/>
   </branchlengths>
 
   <!-- Model assembly -->

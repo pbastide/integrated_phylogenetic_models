@@ -69,7 +69,7 @@ for (irep in 1:Nrep) {
 setwd(here_dir)
 
 saveRDS(time_phyrex, file = file.path(here_dir, "results", paste0(datestamp_day, "_result_timing_phyrex.RDS")))
-# time_phyrex_all <- readRDS(file = file.path(here_dir, "results", paste0(datestamp_day, "_result_timing_phyrex.RDS")))
+# time_phyrex <- readRDS(file = file.path(here_dir, "results", paste0(datestamp_day, "_result_timing_phyrex.RDS")))
 
 ###############################################################################
 ## beast run

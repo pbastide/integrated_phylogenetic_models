@@ -55,8 +55,8 @@ mean_estim_beast <- read.csv(file = file.path(here_dir, "results", paste0(datest
 ###############################################################################
 
 # correspondence of names
-names_phyrex_beast <- data.frame(phyrex = c("sigSqLat", "sigSqLon", "rootLat", "rootLon", "root_VelocLat", "root_VelocLon"),
-                                 beast = c("location.variance.diagonal1", "location.variance.diagonal2", "location.207.3", "location.207.4", "location.207.1", "location.207.2"))
+names_phyrex_beast <- data.frame(phyrex = c("sigSqLat", "sigSqLon", "rootLat", "rootLon", "root_VelocLat", "root_VelocLon", "rootTime"),
+                                 beast = c("location.variance.diagonal1", "location.variance.diagonal2", "location.207.3", "location.207.4", "location.207.1", "location.207.2", "age.root."))
 
 # subset
 mean_estim_phyrex_sub <- mean_estim_phyrex[match(names_phyrex_beast$phyrex, mean_estim_phyrex$parameter), ]
@@ -66,11 +66,15 @@ mean_estim_beast_sub <- mean_estim_beast[match(names_phyrex_beast$beast, mean_es
 mean_estim_beast_sub$time
 mean_estim_phyrex_sub$time
 
+mean_estim_beast_sub$time / 60 / 60
+mean_estim_phyrex_sub$time / 60 / 60
+
 # mean ratio of ESS per seconds
 mean(mean_estim_beast_sub[, "esspersec"] / mean_estim_phyrex_sub[, "esspersec"])
 
 # mean ratio of time per iteration
 mean(mean_estim_beast_sub$time / mean_estim_beast_sub$nitetations / (mean_estim_phyrex_sub$time / mean_estim_phyrex_sub$nitetations))
+mean((mean_estim_phyrex_sub$time / mean_estim_phyrex_sub$nitetations) / (mean_estim_beast_sub$time / mean_estim_beast_sub$nitetations))
 
 # get HPD intervals
 estim_phyrex <- mean_estim_phyrex_sub[, 1:4]
@@ -82,7 +86,7 @@ estim_beast$hpd <- paste0("(", format(mean_estim_beast_sub$HMDmin, digits = 2), 
 estim_both <- cbind(estim_phyrex, estim_beast[, -1])
 # estim_both$ratio <- mean_estim_beast_sub[, "esspersec"] / mean_estim_phyrex_sub[, "esspersec"]
 rownames(estim_both) <- NULL
-estim_both$parameter <- c("$\\sigma^2$ lat", "$\\sigma^2$ lon", "root lat", "root lon", "root veloc lat", "root veloc lon")
+estim_both$parameter <- c("$\\sigma^2$ lat", "$\\sigma^2$ lon", "root lat", "root lon", "root veloc lat", "root veloc lon", "root time")
 colnames(estim_both) <- c("parameter", "ESS", "ESS/s", "mean", "95\\% HPDI", "ESS", "ESS/s", "mean", "95\\% HPDI")#, "ratio ESS/s")
 
 # get table for latex article

@@ -41,7 +41,7 @@ setwd(here_dir)
 library(ggplot2)
 
 # Must match the date of the beast and phyrex run
-datestamp_day <- "2024-05-13"
+datestamp_day <- "2024-05-15"
 
 # name of xml
 name_xml <- ifelse(test = fixed_tree,

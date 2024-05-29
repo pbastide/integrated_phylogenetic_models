@@ -2945,7 +2945,7 @@
 					<treeModel idref="treeModel"/>
 				</ctmcScalePrior>
  -->
-				<logNormalPrior mean="1e-3" stdev="1" offset="0.0">
+				<logNormalPrior mean="1e-3" stdev="0.1" offset="0.0">
 					<parameter idref="ucld.mean"/>
 				</logNormalPrior>
 				<exponentialPrior mean="1e-2" offset="0.0">
