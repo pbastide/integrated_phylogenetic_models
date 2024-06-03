@@ -9,6 +9,10 @@ All the `R` scripts assume that the working directory is the root directory
 * `beast_install`: beast jar file to reproduce the analyses.
 
 * `crossvalidation`: cross validation analyses on the WVN with phyrex.
+	* `wnv_config_ibm.xml`: `PhyREX` configuration file for the IBM model.
+	* `wnv_config_iou.xml`: `PhyREX` configuration file for the IOU model.
+	* `wnv_config_rrw.xml`: `PhyREX` configuration file for the RRW model.
+	* `postprocesscv.R`: script to plot the results.
 
 * `data`: data used for the analyses.
   * `WNV.phy`, `WNV_phy.nwk`, `WNV_lat_long.txt`: data from 
@@ -23,22 +27,31 @@ All the `R` scripts assume that the working directory is the root directory
 	* `util.R`: R utility functions for likelihood computation.
 
 * `phyrex_beast_comparison`: comparison of beast and phyrex results on the WNV example.
+  * `01_run_phyrex_beast.R`: script to run `PhyREX` and `BEAST` programs.
+  * `02_ESS_comparisons.R`: script to show the ESS comparisons.
+  * `03_parameter_plots.R`: script to plot the estimated parameters.
 	* `fixed_tree`: Comparisons on a fixed tree.
 		* `beast`: beast xmls.
 		* `phyrex`: phyrex xmls.
-		* `phyrex_beast_fixed_tree.R`: R script to run the comparisons.
 		* `results`: files produced by the R script.
 	* `inferred_tree`: Comparisons on a fixed tree.
 		* `beast`: beast xmls.
 		* `phyrex`: phyrex xmls.
-		* `phyrex_beast_fixed_tree.R`: R script to run the comparisons.
 		* `results`: files produced by the R script.
 		
-* `sims`: simulation study for the velocity estimation.
+* `simulations_speed_estimation`: simulation study for the velocity estimation.
+	* `datagen.pl`, `datagen.sh`: Script for data simulation using the Spatial Lambda Fleming Viot process.
+	* `ibm`: repository containing `xml` files and associated simulated data.
+	* `sim_ibm.pl`: script to run the `xml` files using `PhyREX`.
+	* `postprocessslfv.R`: `R` script to plot the results.
 
-* `simulation_plots/simulations_trajectories.R`: plot trajectories of integrated processes.
+* `plot_trajectories/simulations_trajectories.R`: plot trajectories of integrated processes.
 
-* `wnv_prediction`: preductions using tip velocities with phyrex.
+* `wnv_prediction`: predictions using tip velocities with phyrex.
+  * `2000`, `2001`, `2002`, `2003`, `2004`, `2005`, `2006`, `2007`: WNV data, split by years.
+  * `predict.cleanup.py`: script to make predictions from the IBM model with `PhyREX`.
+  * `map_predict.R`: script to plot the predictions.
+  * `cb_2018_us_county_500k.*`: US counties.
 
 ## Requirements
 
