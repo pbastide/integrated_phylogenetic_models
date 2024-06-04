@@ -1,7 +1,44 @@
 
+# Extracting yearly data sets
+
+Use the tool `wnvcv`, part of the PhyML package. It is obtained by compiling PhyML using the following steps
+
+```
+git clone git@github.com:stephaneguindon/phyml.git;
+git checkout wnvcv;
+./configure --enable-test;
+make;
+mv test wnvcv;
+```
+
+and then run the following commands in order to generate subsamples of the 801 sequence data set for each year
+from 2000 to 2007
+
+```
+wnvcv --xml=./WNV_RRW_tree_1.xml 2000 1990 1.0
+wnvcv --xml=./WNV_RRW_tree_1.xml 2001 1990 1.0
+wnvcv --xml=./WNV_RRW_tree_1.xml 2002 1990 1.0
+wnvcv --xml=./WNV_RRW_tree_1.xml 2003 1990 1.0
+wnvcv --xml=./WNV_RRW_tree_1.xml 2004 1990 1.0
+wnvcv --xml=./WNV_RRW_tree_1.xml 2005 1990 1.0
+wnvcv --xml=./WNV_RRW_tree_1.xml 2006 1990 1.0
+wnvcv --xml=./WNV_RRW_tree_1.xml 2007 1990 1.0
+```
+
+
+
 # Predicting WNV dispersion
 
-Get PhyML from GitHub with tag "WNV_predictions". Compile `test` (rename to `predict`) and run the following: `python3 ./predict_cleanup.py`.
+Get PhyML from GitHub with tag "WNV_predictions" using the following steps
+```
+git clone git@github.com:stephaneguindon/phyml.git;
+git checkout WNV_predictions;
+./configure --enable-test;
+make;
+mv test predict;
+```
+
+and run the following: `python3 ./predict_cleanup.py`.
 
 Alternatively, you may use the code below: 
 
