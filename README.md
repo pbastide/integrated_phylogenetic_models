@@ -12,6 +12,7 @@ All the `R` scripts assume that the working directory is the root directory
 	* `wnv_config_ibm.xml`: `PhyREX` configuration file for the IBM model.
 	* `wnv_config_iou.xml`: `PhyREX` configuration file for the IOU model.
 	* `wnv_config_rrw.xml`: `PhyREX` configuration file for the RRW model.
+	* `WNV_RRW_tree_1.xml`: `BEAST` xml configuration file from [Dellicour et al 2020]([here](https://github.com/sdellicour/wnv_north_america/blob/master/Scripts_%26_data/Continuous_phylogeographic_analyses/WNV_RRW_tree_1.xml)).
 	* `postprocesscv.R`: script to plot the results.
 
 * `data`: data used for the analyses.
@@ -40,7 +41,7 @@ All the `R` scripts assume that the working directory is the root directory
 		* `results`: files produced by the R script.
 		
 * `simulations_speed_estimation`: simulation study for the velocity estimation.
-	* `datagen.pl`, `datagen.sh`: Script for data simulation using the Spatial Lambda Fleming Viot process.
+	* `datagen.pl`: Script for data simulation using the Spatial Lambda Fleming Viot process.
 	* `ibm`: repository containing `xml` files and associated simulated data.
 	* `sim_ibm.pl`: script to run the `xml` files using `PhyREX`.
 	* `postprocessslfv.R`: `R` script to plot the results.
@@ -57,10 +58,23 @@ All the `R` scripts assume that the working directory is the root directory
 
 * `BEAST`: http://beast.community/installing. 
   The latest (development) version from `BEAST` is needed,
-  please follow instructions to install the package from the `master` branch.
+  please follow instructions to install the package from the `integrated_OU` branch.
+  The `beast.jar` file provided here can be re-written with
+  (from the root directory containing this readme file):
+  ```
+  git clone git@github.com:beast-dev/beast-mcmc.git;
+  cd beast-mcmc;
+  git checkout integrated_OU;
+  ant build;
+  cd ..;
+  cp beast-mcmc/build/dist/beast.jar beast_install/beast.jar;
+  ```
   
 * `PhyREX`: https://github.com/stephaneguindon/phyml.
   The latest (development) version from `PhyREX` is needed,
   please follow instructions to install the package from the `master` branch.
+  We assume that the `phyrex` executable is linked to the `phyrex` command
+  (e.g. with a symlink on macos:
+  `sudo ln -s path/to/phyrex/local/executable /usr/local/bin/diyabc`)
 
 * `R`: https://cran.r-project.org/index.html. Version 4.4.

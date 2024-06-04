@@ -2,7 +2,27 @@
 
 # Accuracy of speed estimation using simulations
 
-In order to generate synthetic data sets under the spatial Lambda-Fleming-Viot process, we used the following command: `perl ./datagen.pl`. This script runs `phyrexsim` which can be obtained by compiling PhyML code using `./configure --enable-phyrexsim`. This produces the `.xml` files in the `ibm` folder, that are provided here for convenience.
+## Data simulation
+
+In order to generate synthetic data sets under the spatial Lambda-Fleming-Viot process,
+we used `phyrexsim`, which can be obtained by compiling PhyML code using `./configure --enable-phyrexsim`. From the current `simulations_speed_estimation` repository, do:
+
+```
+git clone git@github.com:stephaneguindon/phyml.git;
+cd phyml;
+sh ./autogen.sh;
+./configure --enable-phyrexsim;
+make;
+cd ..;
+mv phyml/src/phyrexsim phyrexsim;
+```
+The script `datagen.pl` then runs `phyrexsim` to produce the synthetic data:
+```
+perl ./datagen.pl
+```
+This produces the `.xml` files in the `ibm` folder, that are provided here for convenience.
+
+## Data analysis
 
 All simulated data sets were then processed with PhyREX on a computer server using `perl sim_ibm.pl`.
 The script requires a working installation of PhyREX.
