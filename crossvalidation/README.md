@@ -2,7 +2,7 @@
 
 # Cross-validation of locations on WNV data set
 
-150 sequences were selected uniformly at random from 802 sequence data set using following command :
+150 sequences were selected uniformly at random from the 801 sequence data set using following command :
 
 ./wnvcv --xml=./WNV_RRW_tree_1.xml 2077 150
 
