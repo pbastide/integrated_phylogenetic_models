@@ -1,3 +1,4 @@
+Original data set consists in 801 geo-referenced sequences available from [here](https://github.com/sdellicour/wnv_north_america/blob/master/Scripts_%26_data/Continuous_phylogeographic_analyses/WNV_RRW_tree_1.xml).
 
 # Extracting yearly data sets
 

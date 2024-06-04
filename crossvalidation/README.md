@@ -2,6 +2,8 @@
 
 # Cross-validation of locations on WNV data set
 
+Original data set consists in 801 geo-referenced sequences available from [here](https://github.com/sdellicour/wnv_north_america/blob/master/Scripts_%26_data/Continuous_phylogeographic_analyses/WNV_RRW_tree_1.xml).
+
 150 sequences were selected uniformly at random from the 801 sequence data set using following command :
 
 ./wnvcv --xml=./WNV_RRW_tree_1.xml 2077 150
