@@ -43,6 +43,13 @@ mkdir 2006; mv wnv_config_*.xml coord.txt seq.txt 2006/.;
 mkdir 2007; mv wnv_config_*.xml coord.txt seq.txt 2007/.;
 ```
 
+## Runing `PhyREX` on each `xml` file
+
+Run `PhyREX` on each produced file using the command:
+```
+cd YEAR; phyrex phyrex --xml=./wnv_config_XXX.xml;
+```
+(replacing `YEAR` and `XXX` by the appropriate quantities.)
 
 ## Predicting WNV dispersion
 
