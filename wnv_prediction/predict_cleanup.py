@@ -32,7 +32,7 @@ for year in range(2000,2008) :
 
     subprocess.run([predict],shell=True);
     subprocess.run(["grep XXX " + dir_path + "raw_predict" + " > " + dir_path + "clean_predict"],shell=True); 
-    subprocess.run(["find " + dir_path + "clean_predict -type f -exec sed -i -e 's/. XXX/ /g' {} \;"],shell=True);
-    subprocess.run(["find " + dir_path + "wnv_incidence_" + str(year) + ".csv" + " -type f -exec sed -i -e 's/;/,/g' {} \;"],shell=True);
+    subprocess.run(["find " + dir_path + "clean_predict -type f -exec sed -i -e 's/. XXX/ /g' {} ;"],shell=True);
+    subprocess.run(["find " + dir_path + "wnv_incidence_" + str(year) + ".csv" + " -type f -exec sed -i -e 's/;/,/g' {} ;"],shell=True);
 
 subprocess.run(["R CMD BATCH ./map_predict.R"],shell=True);
