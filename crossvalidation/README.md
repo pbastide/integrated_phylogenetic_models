@@ -27,26 +27,13 @@ The sequences are then selected using:
 ./wnvcv --xml=./WNV_RRW_tree_1.xml 2077 150
 ```
 
-Running wnvcv using the command above generates a XML configuration file, a sequence alignment file and a coordinates file.
-Rename that file `wnv_config_ibm.xml`. Create a copy of it named `wnv_config_iou.xml`. In that file, replace the following line 
+Running `wnvcv` using the command above generates a XML configuration file,
+a sequence alignment file and a coordinates file.
+
+The following `R` script then reformat the `xml` file to fit the IBM, IOU and RRW
+models, producing files: `wnv_config_ibm.xml`, `wnv_config_iou.xml` and `wnv_config_rrw.xml`:
 ```
-  <spatialmodel name="ibm" rw.prior.distrib="flat" rw.prior.mean="1." sampling="detection" integrateAncestralLocations="true" distance.type="greatcircle" observational.model="no">
-  </spatialmodel>
-```
-with
-```
-  <spatialmodel name="iou" rw.prior.distrib="flat" rw.prior.mean="1." sampling="detection" integrateAncestralLocations="true" distance.type="greatcircle" observational.model="no">
-  </spatialmodel>
-```
-Create another copy of `wnv_config_ibm.xml`, named `wnv_config_rrw.xml`. In that file, replace the following line
-```
-  <spatialmodel name="ibm" rw.prior.distrib="flat" rw.prior.mean="1." sampling="detection" integrateAncestralLocations="true" distance.type="greatcircle" observational.model="no">
-  </spatialmodel>
-```
-with
-```
-  <spatialmodel name="rrw+gamma" rw.prior.distrib="flat" rw.prior.mean="1." sampling="detection" integrateAncestralLocations="true" distance.type="greatcircle" observational.model="no">
-  </spatialmodel>
+Rscript generate_xml.R
 ```
 
 ## Cross validation analysis

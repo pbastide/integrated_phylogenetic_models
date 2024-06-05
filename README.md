@@ -9,9 +9,7 @@ All the `R` scripts assume that the working directory is the root directory
 * `beast_install`: beast jar file to reproduce the analyses.
 
 * `crossvalidation`: cross validation analyses on the WVN with phyrex.
-	* `wnv_config_ibm.xml`: `PhyREX` configuration file for the IBM model.
-	* `wnv_config_iou.xml`: `PhyREX` configuration file for the IOU model.
-	* `wnv_config_rrw.xml`: `PhyREX` configuration file for the RRW model.
+	* `generate_xml.R`: `R` script to format `PhyREX` xmls produced by `wnvcv`.
 	* `WNV_RRW_tree_1.xml`: `BEAST` xml configuration file from [Dellicour et al 2020]([here](https://github.com/sdellicour/wnv_north_america/blob/master/Scripts_%26_data/Continuous_phylogeographic_analyses/WNV_RRW_tree_1.xml)).
 	* `postprocesscv.R`: script to plot the results.
 
@@ -53,7 +51,8 @@ All the `R` scripts assume that the working directory is the root directory
   * `predict.cleanup.py`: script to make predictions from the IBM model with `PhyREX`.
   * `map_predict.R`: script to plot the predictions.
   * `cb_2018_us_county_500k.*`: US counties.
-
+  * `WNV_RRW_tree_1.xml`: `BEAST` xml configuration file from [Dellicour et al 2020]([here](https://github.com/sdellicour/wnv_north_america/blob/master/Scripts_%26_data/Continuous_phylogeographic_analyses/WNV_RRW_tree_1.xml)).
+  	
 ## Requirements
 
 * `BEAST`: http://beast.community/installing. 
@@ -78,3 +77,5 @@ All the `R` scripts assume that the working directory is the root directory
   `sudo ln -s path/to/phyrex/local/executable /usr/local/bin/diyabc`)
 
 * `R`: https://cran.r-project.org/index.html. Version 4.4.
+
+* `BEAGLE` (optional): https://github.com/beagle-dev/beagle-lib.
