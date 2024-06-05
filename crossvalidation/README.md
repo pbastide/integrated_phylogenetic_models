@@ -28,8 +28,26 @@ The sequences are then selected using:
 ```
 
 Running wnvcv using the command above generates a XML configuration file, a sequence alignment file and a coordinates file.
-
-The XML configuration file hence generated was then slightly amended in order to create `wnv_config_ibm.xml`, `wnv_config_iou.xml` and `wnv_config_rrw.xml` files.
+Rename that file `wnv_config_ibm.xml`. Create a copy of it named `wnv_config_iou.xml`. In that file, replace the following line 
+```
+  <spatialmodel name="ibm" rw.prior.distrib="flat" rw.prior.mean="1." sampling="detection" integrateAncestralLocations="true" distance.type="greatcircle" observational.model="no">
+  </spatialmodel>
+```
+with
+```
+  <spatialmodel name="iou" rw.prior.distrib="flat" rw.prior.mean="1." sampling="detection" integrateAncestralLocations="true" distance.type="greatcircle" observational.model="no">
+  </spatialmodel>
+```
+Create another copy of `wnv_config_ibm.xml`, named `wnv_config_rrw.xml`. In that file, replace the following line
+```
+  <spatialmodel name="ibm" rw.prior.distrib="flat" rw.prior.mean="1." sampling="detection" integrateAncestralLocations="true" distance.type="greatcircle" observational.model="no">
+  </spatialmodel>
+```
+with
+```
+  <spatialmodel name="rrw+gamma" rw.prior.distrib="flat" rw.prior.mean="1." sampling="detection" integrateAncestralLocations="true" distance.type="greatcircle" observational.model="no">
+  </spatialmodel>
+```
 
 ## Cross validation analysis
 
