@@ -1,0 +1,927 @@
+<phyrex run.id="ibm" output.file="WNV" mcmc.chain.len="5E+7" mcmc.sample.every="1E+4"
+        mcmc.print.every="1E+4" mcmc.burnin="5E+6" mutmap="no" ignore.sequences="no">
+
+  <!-- Model of variation of spatial diffusion across lineages -->
+  <spatialmodel name="ibm" 
+  				rw.prior.distrib="exponential" rw.prior.mean="10."
+                sampling="detection" integrateAncestralLocations="true"
+                distance.type="greatcircle"
+                observational.model="yes"
+                observational.var="1.E-4"
+                observational.var.est="yes"
+                rw.root.var="10000.0">
+  </spatialmodel>
+
+  
+  <!-- Model of substitution rate variation across lineages -->
+  <lineagerates model="lognormal" autocor.prior.rate="100"/>
+  <!--   <lineagerates model="strictclock"/> -->
+
+    <!-- Tree model -->
+  <treegenerating model="coalescent" neff.prior.mean="1." fix.neff="no" expgrowth="no" fix.node.ages="no"/>
+  <!-- <treegenerating model="coalescent" neff.prior.distrib="flat" fix.node.ages="no"/> -->
+
+  <clockrate init.value="4.E-4" opt.clock="yes" prior.mean="0.001" prior.var="0.01"/>
+<!--   <clockrate init.value="4.E-4" opt.clock="no"/> -->
+
+  
+  <!-- Tree topology -->
+  <topology> 
+    <instance id="T1" init.tree="BioNJ"/>
+	<!--     <instance id="T1" init.tree="user" file.name="./../../../data/WNV_phy.nwk" optimise.tree="no" edge.lengths="calendar"/> -->
+  </topology>
+  
+  
+  <!-- Substitution model -->
+  <ratematrices id="RM1">
+    <instance id="M1" model="HKY85" optimise.tstv="yes"/>
+  </ratematrices>
+
+<!-- constant rates across sites -->
+  <siterates id="SR1">
+    <instance id="R1" init.value="1.0"/>
+    <weights  id="D1" family="freerates" >
+      <instance appliesto="R1" value="0.25"/>
+    </weights>
+  </siterates>
+  
+  <!-- Gamma model of variation of rates across sites -->
+ <!-- 
+ <siterates id="SR1">
+    <instance id="R1" init.value="1.0"/>
+    <instance id="R2" init.value="1.0"/>
+    <instance id="R3" init.value="1.0"/>
+    <weights  id="D1" family="freerates" >
+      <instance appliesto="R1" value="0.25"/>
+      <instance appliesto="R2" value="0.25"/>
+      <instance appliesto="R3" value="0.25"/>
+    </weights>
+  </siterates>
+ -->
+
+
+  <!-- Nucleotide frequencies -->
+  <equfreqs id="EF1">
+    <instance id="F1" optimise.freqs="no"/>
+  </equfreqs>
+
+
+  <!-- Vector of edge lengths -->
+  <branchlengths id="BL1" >
+    <instance id="L1" optimise.lens="yes"/>
+  </branchlengths>
+
+  <!-- Model assembly -->
+  <partitionelem id="partition1" file.name="./../../../data/WNV.phy" data.type="nt" interleaved="no">
+    <mixtureelem list="T1"/>
+    <mixtureelem list="M1"/>
+    <mixtureelem list="F1"/>
+    <mixtureelem list="R1"/>
+    <mixtureelem list="L1"/>
+
+<!-- 
+    <mixtureelem list="T1,T1,T1"/>
+    <mixtureelem list="M1,M1,M1"/>
+    <mixtureelem list="F1,F1,F1"/>
+    <mixtureelem list="R1,R2,R3"/>
+    <mixtureelem list="L1,L1,L1"/>
+ -->
+  </partitionelem>
+
+
+  <coordinates id="coordinates" file.name="./../../../data/WNV_lat_long.txt"/>
+
+  <clade id="clad1">
+    <taxon value="WG149_Hs_2007.63"/>
+  </clade>
+  <calibration id="cal1">
+    <lower>2007.630000</lower>
+    <upper>2007.630000</upper>
+    <appliesto clade.id="clad1"/>
+  </calibration>
+    
+  <clade id="clad2">
+    <taxon value="WG148_Hs_2007.59"/>
+  </clade>
+  <calibration id="cal2">
+    <lower>2007.590000</lower>
+    <upper>2007.590000</upper>
+    <appliesto clade.id="clad2"/>
+  </calibration>
+  <clade id="clad3">
+    <taxon value="WG144_Hs_2006.67"/>
+  </clade>
+  <calibration id="cal3">
+    <lower>2006.670000</lower>
+    <upper>2006.670000</upper>
+    <appliesto clade.id="clad3"/>
+  </calibration>
+  <clade id="clad4">
+    <taxon value="WG142_Hs_2006.64"/>
+  </clade>
+  <calibration id="cal4">
+    <lower>2006.640000</lower>
+    <upper>2006.640000</upper>
+    <appliesto clade.id="clad4"/>
+  </calibration>
+  <clade id="clad5">
+    <taxon value="WG132_Hs_2005.76"/>
+  </clade>
+  <calibration id="cal5">
+    <lower>2005.760000</lower>
+    <upper>2005.760000</upper>
+    <appliesto clade.id="clad5"/>
+  </calibration>
+  <clade id="clad6">
+    <taxon value="WG124_Hs_2005.69"/>
+  </clade>
+  <calibration id="cal6">
+    <lower>2005.690000</lower>
+    <upper>2005.690000</upper>
+    <appliesto clade.id="clad6"/>
+  </calibration>
+  <clade id="clad7">
+    <taxon value="WG116_Hs_2005.65"/>
+  </clade>
+  <calibration id="cal7">
+    <lower>2005.650000</lower>
+    <upper>2005.650000</upper>
+    <appliesto clade.id="clad7"/>
+  </calibration>
+  <clade id="clad8">
+    <taxon value="WG103_Hs_2005.58"/>
+  </clade>
+  <calibration id="cal8">
+    <lower>2005.580000</lower>
+    <upper>2005.580000</upper>
+    <appliesto clade.id="clad8"/>
+  </calibration>
+  <clade id="clad9">
+    <taxon value="WG101_Hs_2005.57"/>
+  </clade>
+  <calibration id="cal9">
+    <lower>2005.570000</lower>
+    <upper>2005.570000</upper>
+    <appliesto clade.id="clad9"/>
+  </calibration>
+  <clade id="clad10">
+    <taxon value="WG099_Hs_2004.49"/>
+  </clade>
+  <calibration id="cal10">
+    <lower>2004.490000</lower>
+    <upper>2004.490000</upper>
+    <appliesto clade.id="clad10"/>
+  </calibration>
+  <clade id="clad11">
+    <taxon value="WG091_Hs_2004.66"/>
+  </clade>
+  <calibration id="cal11">
+    <lower>2004.660000</lower>
+    <upper>2004.660000</upper>
+    <appliesto clade.id="clad11"/>
+  </calibration>
+  <clade id="clad12">
+    <taxon value="WG080_Hs_2004.56"/>
+  </clade>
+  <calibration id="cal12">
+    <lower>2004.560000</lower>
+    <upper>2004.560000</upper>
+    <appliesto clade.id="clad12"/>
+  </calibration>
+  <clade id="clad13">
+    <taxon value="WG024_Hs_2003.53"/>
+  </clade>
+  <calibration id="cal13">
+    <lower>2003.530000</lower>
+    <upper>2003.530000</upper>
+    <appliesto clade.id="clad13"/>
+  </calibration>
+  <clade id="clad14">
+    <taxon value="WG013_Hs_2007.48"/>
+  </clade>
+  <calibration id="cal14">
+    <lower>2007.480000</lower>
+    <upper>2007.480000</upper>
+    <appliesto clade.id="clad14"/>
+  </calibration>
+  <clade id="clad15">
+    <taxon value="WG011_Hs_2006.66"/>
+  </clade>
+  <calibration id="cal15">
+    <lower>2006.660000</lower>
+    <upper>2006.660000</upper>
+    <appliesto clade.id="clad15"/>
+  </calibration>
+  <clade id="clad16">
+    <taxon value="WG009_Hs_2005.67"/>
+  </clade>
+  <calibration id="cal16">
+    <lower>2005.670000</lower>
+    <upper>2005.670000</upper>
+    <appliesto clade.id="clad16"/>
+  </calibration>
+  <clade id="clad17">
+    <taxon value="WG007_Hs_2005.59"/>
+  </clade>
+  <calibration id="cal17">
+    <lower>2005.590000</lower>
+    <upper>2005.590000</upper>
+    <appliesto clade.id="clad17"/>
+  </calibration>
+  <clade id="clad18">
+    <taxon value="FJ151394_Cb_1999"/>
+  </clade>
+  <calibration id="cal18">
+    <lower>1999.000000</lower>
+    <upper>1999.000000</upper>
+    <appliesto clade.id="clad18"/>
+  </calibration>
+  <clade id="clad19">
+    <taxon value="DQ983578_Cn_2003"/>
+  </clade>
+  <calibration id="cal19">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad19"/>
+  </calibration>
+  <clade id="clad20">
+    <taxon value="DQ666452_Hs_2005"/>
+  </clade>
+  <calibration id="cal20">
+    <lower>2005.000000</lower>
+    <upper>2005.000000</upper>
+    <appliesto clade.id="clad20"/>
+  </calibration>
+  <clade id="clad21">
+    <taxon value="DQ666451_Hs_2005"/>
+  </clade>
+  <calibration id="cal21">
+    <lower>2005.000000</lower>
+    <upper>2005.000000</upper>
+    <appliesto clade.id="clad21"/>
+  </calibration>
+  <clade id="clad22">
+    <taxon value="DQ666450_Hs_2005"/>
+  </clade>
+  <calibration id="cal22">
+    <lower>2005.000000</lower>
+    <upper>2005.000000</upper>
+    <appliesto clade.id="clad22"/>
+  </calibration>
+  <clade id="clad23">
+    <taxon value="DQ666449_Hs_2005"/>
+  </clade>
+  <calibration id="cal23">
+    <lower>2005.000000</lower>
+    <upper>2005.000000</upper>
+    <appliesto clade.id="clad23"/>
+  </calibration>
+  <clade id="clad24">
+    <taxon value="DQ666448_Hs_2004"/>
+  </clade>
+  <calibration id="cal24">
+    <lower>2004.000000</lower>
+    <upper>2004.000000</upper>
+    <appliesto clade.id="clad24"/>
+  </calibration>
+  <clade id="clad25">
+    <taxon value="DQ431712WG252_Hs_2004.57"/>
+  </clade>
+  <calibration id="cal25">
+    <lower>2004.570000</lower>
+    <upper>2004.570000</upper>
+    <appliesto clade.id="clad25"/>
+  </calibration>
+  <clade id="clad26">
+    <taxon value="DQ431711WG251_Hs_2004"/>
+  </clade>
+  <calibration id="cal26">
+    <lower>2004.000000</lower>
+    <upper>2004.000000</upper>
+    <appliesto clade.id="clad26"/>
+  </calibration>
+  <clade id="clad27">
+    <taxon value="DQ431710WG244_Hs_2004.58"/>
+  </clade>
+  <calibration id="cal27">
+    <lower>2004.580000</lower>
+    <upper>2004.580000</upper>
+    <appliesto clade.id="clad27"/>
+  </calibration>
+  <clade id="clad28">
+    <taxon value="DQ431709WG240_Hs_2004.54"/>
+  </clade>
+  <calibration id="cal28">
+    <lower>2004.540000</lower>
+    <upper>2004.540000</upper>
+    <appliesto clade.id="clad28"/>
+  </calibration>
+  <clade id="clad29">
+    <taxon value="DQ431708WG238_Hs_2004.54"/>
+  </clade>
+  <calibration id="cal29">
+    <lower>2004.540000</lower>
+    <upper>2004.540000</upper>
+    <appliesto clade.id="clad29"/>
+  </calibration>
+  <clade id="clad30">
+    <taxon value="DQ431707WG237_Hs_2004.58"/>
+  </clade>
+  <calibration id="cal30">
+    <lower>2004.580000</lower>
+    <upper>2004.580000</upper>
+    <appliesto clade.id="clad30"/>
+  </calibration>
+  <clade id="clad31">
+    <taxon value="DQ431706WG236_Hs_2004.57"/>
+  </clade>
+  <calibration id="cal31">
+    <lower>2004.570000</lower>
+    <upper>2004.570000</upper>
+    <appliesto clade.id="clad31"/>
+  </calibration>
+  <clade id="clad32">
+    <taxon value="DQ431705WG233_Hs_2004.52"/>
+  </clade>
+  <calibration id="cal32">
+    <lower>2004.520000</lower>
+    <upper>2004.520000</upper>
+    <appliesto clade.id="clad32"/>
+  </calibration>
+  <clade id="clad33">
+    <taxon value="DQ431704WG219_Hs_2004.57"/>
+  </clade>
+  <calibration id="cal33">
+    <lower>2004.570000</lower>
+    <upper>2004.570000</upper>
+    <appliesto clade.id="clad33"/>
+  </calibration>
+  <clade id="clad34">
+    <taxon value="DQ431703WG218_Hs_2004.57"/>
+  </clade>
+  <calibration id="cal34">
+    <lower>2004.570000</lower>
+    <upper>2004.570000</upper>
+    <appliesto clade.id="clad34"/>
+  </calibration>
+  <clade id="clad35">
+    <taxon value="DQ431702WG216_Hs_2004.57"/>
+  </clade>
+  <calibration id="cal35">
+    <lower>2004.570000</lower>
+    <upper>2004.570000</upper>
+    <appliesto clade.id="clad35"/>
+  </calibration>
+  <clade id="clad36">
+    <taxon value="DQ431701WG214_Hs_2004.53"/>
+  </clade>
+  <calibration id="cal36">
+    <lower>2004.530000</lower>
+    <upper>2004.530000</upper>
+    <appliesto clade.id="clad36"/>
+  </calibration>
+  <clade id="clad37">
+    <taxon value="DQ431700WG213_Hs_2004"/>
+  </clade>
+  <calibration id="cal37">
+    <lower>2004.000000</lower>
+    <upper>2004.000000</upper>
+    <appliesto clade.id="clad37"/>
+  </calibration>
+  <clade id="clad38">
+    <taxon value="DQ431699WG124_Hs_2003.73"/>
+  </clade>
+  <calibration id="cal38">
+    <lower>2003.730000</lower>
+    <upper>2003.730000</upper>
+    <appliesto clade.id="clad38"/>
+  </calibration>
+  <clade id="clad39">
+    <taxon value="DQ431698WG120_Hs_2003.65"/>
+  </clade>
+  <calibration id="cal39">
+    <lower>2003.650000</lower>
+    <upper>2003.650000</upper>
+    <appliesto clade.id="clad39"/>
+  </calibration>
+  <clade id="clad40">
+    <taxon value="DQ431697WG113_Hs_2003.56"/>
+  </clade>
+  <calibration id="cal40">
+    <lower>2003.560000</lower>
+    <upper>2003.560000</upper>
+    <appliesto clade.id="clad40"/>
+  </calibration>
+  <clade id="clad41">
+    <taxon value="DQ431696WG104_Hs_2003.70"/>
+  </clade>
+  <calibration id="cal41">
+    <lower>2003.700000</lower>
+    <upper>2003.700000</upper>
+    <appliesto clade.id="clad41"/>
+  </calibration>
+  <clade id="clad42">
+    <taxon value="DQ431695WG082_Hs_2003"/>
+  </clade>
+  <calibration id="cal42">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad42"/>
+  </calibration>
+  <clade id="clad43">
+    <taxon value="DQ431694WG022_Hs_2003.62"/>
+  </clade>
+  <calibration id="cal43">
+    <lower>2003.620000</lower>
+    <upper>2003.620000</upper>
+    <appliesto clade.id="clad43"/>
+  </calibration>
+  <clade id="clad44">
+    <taxon value="DQ431693WG020_Hs_2003.60"/>
+  </clade>
+  <calibration id="cal44">
+    <lower>2003.600000</lower>
+    <upper>2003.600000</upper>
+    <appliesto clade.id="clad44"/>
+  </calibration>
+  <clade id="clad45">
+    <taxon value="DQ176637_Qq_2002"/>
+  </clade>
+  <calibration id="cal45">
+    <lower>2002.000000</lower>
+    <upper>2002.000000</upper>
+    <appliesto clade.id="clad45"/>
+  </calibration>
+  <clade id="clad46">
+    <taxon value="DQ164206_Cc_2004"/>
+  </clade>
+  <calibration id="cal46">
+    <lower>2004.000000</lower>
+    <upper>2004.000000</upper>
+    <appliesto clade.id="clad46"/>
+  </calibration>
+  <clade id="clad47">
+    <taxon value="DQ164205_Hs_2002"/>
+  </clade>
+  <calibration id="cal47">
+    <lower>2002.000000</lower>
+    <upper>2002.000000</upper>
+    <appliesto clade.id="clad47"/>
+  </calibration>
+  <clade id="clad48">
+    <taxon value="DQ164204_Bj_2003"/>
+  </clade>
+  <calibration id="cal48">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad48"/>
+  </calibration>
+  <clade id="clad49">
+    <taxon value="DQ164203_Ph_2003"/>
+  </clade>
+  <calibration id="cal49">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad49"/>
+  </calibration>
+  <clade id="clad50">
+    <taxon value="DQ164202_Hs_2002"/>
+  </clade>
+  <calibration id="cal50">
+    <lower>2002.000000</lower>
+    <upper>2002.000000</upper>
+    <appliesto clade.id="clad50"/>
+  </calibration>
+  <clade id="clad51">
+    <taxon value="DQ164201_Hs_2004"/>
+  </clade>
+  <calibration id="cal51">
+    <lower>2004.000000</lower>
+    <upper>2004.000000</upper>
+    <appliesto clade.id="clad51"/>
+  </calibration>
+  <clade id="clad52">
+    <taxon value="DQ164200_Hs_2002"/>
+  </clade>
+  <calibration id="cal52">
+    <lower>2002.000000</lower>
+    <upper>2002.000000</upper>
+    <appliesto clade.id="clad52"/>
+  </calibration>
+  <clade id="clad53">
+    <taxon value="DQ164199_Hs_2003"/>
+  </clade>
+  <calibration id="cal53">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad53"/>
+  </calibration>
+  <clade id="clad54">
+    <taxon value="DQ164198_Hs_2002"/>
+  </clade>
+  <calibration id="cal54">
+    <lower>2002.000000</lower>
+    <upper>2002.000000</upper>
+    <appliesto clade.id="clad54"/>
+  </calibration>
+  <clade id="clad55">
+    <taxon value="DQ164197_Hs_2002"/>
+  </clade>
+  <calibration id="cal55">
+    <lower>2002.000000</lower>
+    <upper>2002.000000</upper>
+    <appliesto clade.id="clad55"/>
+  </calibration>
+  <clade id="clad56">
+    <taxon value="DQ164196_Hs_2002"/>
+  </clade>
+  <calibration id="cal56">
+    <lower>2002.000000</lower>
+    <upper>2002.000000</upper>
+    <appliesto clade.id="clad56"/>
+  </calibration>
+  <clade id="clad57">
+    <taxon value="DQ164195_Cx_2002"/>
+  </clade>
+  <calibration id="cal57">
+    <lower>2002.000000</lower>
+    <upper>2002.000000</upper>
+    <appliesto clade.id="clad57"/>
+  </calibration>
+  <clade id="clad58">
+    <taxon value="DQ164194_Cb_2001"/>
+  </clade>
+  <calibration id="cal58">
+    <lower>2001.000000</lower>
+    <upper>2001.000000</upper>
+    <appliesto clade.id="clad58"/>
+  </calibration>
+  <clade id="clad59">
+    <taxon value="DQ164193_Cb_2002"/>
+  </clade>
+  <calibration id="cal59">
+    <lower>2002.000000</lower>
+    <upper>2002.000000</upper>
+    <appliesto clade.id="clad59"/>
+  </calibration>
+  <clade id="clad60">
+    <taxon value="DQ164192_Cb_2003"/>
+  </clade>
+  <calibration id="cal60">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad60"/>
+  </calibration>
+  <clade id="clad61">
+    <taxon value="DQ164191_Cb_2003"/>
+  </clade>
+  <calibration id="cal61">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad61"/>
+  </calibration>
+  <clade id="clad62">
+    <taxon value="DQ164190_Cb_2003"/>
+  </clade>
+  <calibration id="cal62">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad62"/>
+  </calibration>
+  <clade id="clad63">
+    <taxon value="DQ164189_Cb_2003"/>
+  </clade>
+  <calibration id="cal63">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad63"/>
+  </calibration>
+  <clade id="clad64">
+    <taxon value="DQ164188_Cb_2003"/>
+  </clade>
+  <calibration id="cal64">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad64"/>
+  </calibration>
+  <clade id="clad65">
+    <taxon value="DQ164187_Cb_2002"/>
+  </clade>
+  <calibration id="cal65">
+    <lower>2002.000000</lower>
+    <upper>2002.000000</upper>
+    <appliesto clade.id="clad65"/>
+  </calibration>
+  <clade id="clad66">
+    <taxon value="DQ164186_Cb_2002"/>
+  </clade>
+  <calibration id="cal66">
+    <lower>2002.000000</lower>
+    <upper>2002.000000</upper>
+    <appliesto clade.id="clad66"/>
+  </calibration>
+  <clade id="clad67">
+    <taxon value="DQ080072_Dc_2001"/>
+  </clade>
+  <calibration id="cal67">
+    <lower>2001.000000</lower>
+    <upper>2001.000000</upper>
+    <appliesto clade.id="clad67"/>
+  </calibration>
+  <clade id="clad68">
+    <taxon value="DQ080071_Ec_2002"/>
+  </clade>
+  <calibration id="cal68">
+    <lower>2002.000000</lower>
+    <upper>2002.000000</upper>
+    <appliesto clade.id="clad68"/>
+  </calibration>
+  <clade id="clad69">
+    <taxon value="DQ080070_Qq_2003"/>
+  </clade>
+  <calibration id="cal69">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad69"/>
+  </calibration>
+  <clade id="clad70">
+    <taxon value="DQ080069_Ec_2003"/>
+  </clade>
+  <calibration id="cal70">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad70"/>
+  </calibration>
+  <clade id="clad71">
+    <taxon value="DQ080068_Ah_2003"/>
+  </clade>
+  <calibration id="cal71">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad71"/>
+  </calibration>
+  <clade id="clad72">
+    <taxon value="DQ080067_Bvs_2003"/>
+  </clade>
+  <calibration id="cal72">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad72"/>
+  </calibration>
+  <clade id="clad73">
+    <taxon value="DQ080066_Px_2003"/>
+  </clade>
+  <calibration id="cal73">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad73"/>
+  </calibration>
+  <clade id="clad74">
+    <taxon value="DQ080065_Qq_2003"/>
+  </clade>
+  <calibration id="cal74">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad74"/>
+  </calibration>
+  <clade id="clad75">
+    <taxon value="DQ080064_Fa_2003"/>
+  </clade>
+  <calibration id="cal75">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad75"/>
+  </calibration>
+  <clade id="clad76">
+    <taxon value="DQ080063_Cl_2003"/>
+  </clade>
+  <calibration id="cal76">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad76"/>
+  </calibration>
+  <clade id="clad77">
+    <taxon value="DQ080062_Cx_2002"/>
+  </clade>
+  <calibration id="cal77">
+    <lower>2002.000000</lower>
+    <upper>2002.000000</upper>
+    <appliesto clade.id="clad77"/>
+  </calibration>
+  <clade id="clad78">
+    <taxon value="DQ080061_Ccs_2004"/>
+  </clade>
+  <calibration id="cal78">
+    <lower>2004.000000</lower>
+    <upper>2004.000000</upper>
+    <appliesto clade.id="clad78"/>
+  </calibration>
+  <clade id="clad79">
+    <taxon value="DQ080060_Cc_2004"/>
+  </clade>
+  <calibration id="cal79">
+    <lower>2004.000000</lower>
+    <upper>2004.000000</upper>
+    <appliesto clade.id="clad79"/>
+  </calibration>
+  <clade id="clad80">
+    <taxon value="DQ080059_Pn_2003"/>
+  </clade>
+  <calibration id="cal80">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad80"/>
+  </calibration>
+  <clade id="clad81">
+    <taxon value="DQ080058_Cb_2003"/>
+  </clade>
+  <calibration id="cal81">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad81"/>
+  </calibration>
+  <clade id="clad82">
+    <taxon value="DQ080057_Cb_2003"/>
+  </clade>
+  <calibration id="cal82">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad82"/>
+  </calibration>
+  <clade id="clad83">
+    <taxon value="DQ080056_Ct_2003"/>
+  </clade>
+  <calibration id="cal83">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad83"/>
+  </calibration>
+  <clade id="clad84">
+    <taxon value="DQ080055_Ct_2003"/>
+  </clade>
+  <calibration id="cal84">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad84"/>
+  </calibration>
+  <clade id="clad85">
+    <taxon value="DQ080054_Cq_2003"/>
+  </clade>
+  <calibration id="cal85">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad85"/>
+  </calibration>
+  <clade id="clad86">
+    <taxon value="DQ080053_Ct_2003"/>
+  </clade>
+  <calibration id="cal86">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad86"/>
+  </calibration>
+  <clade id="clad87">
+    <taxon value="DQ080052_Ct_2003"/>
+  </clade>
+  <calibration id="cal87">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad87"/>
+  </calibration>
+  <clade id="clad88">
+    <taxon value="DQ080051_Ct_2003"/>
+  </clade>
+  <calibration id="cal88">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad88"/>
+  </calibration>
+  <clade id="clad89">
+    <taxon value="DQ005530_Hs_2003"/>
+  </clade>
+  <calibration id="cal89">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad89"/>
+  </calibration>
+  <clade id="clad90">
+    <taxon value="AY795965_Hs_2002"/>
+  </clade>
+  <calibration id="cal90">
+    <lower>2002.000000</lower>
+    <upper>2002.000000</upper>
+    <appliesto clade.id="clad90"/>
+  </calibration>
+  <clade id="clad91">
+    <taxon value="AY712948_Cq_2003"/>
+  </clade>
+  <calibration id="cal91">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad91"/>
+  </calibration>
+  <clade id="clad92">
+    <taxon value="AY712947_Cc_2003"/>
+  </clade>
+  <calibration id="cal92">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad92"/>
+  </calibration>
+  <clade id="clad93">
+    <taxon value="AY712946_Cc_2003"/>
+  </clade>
+  <calibration id="cal93">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad93"/>
+  </calibration>
+  <clade id="clad94">
+    <taxon value="AY712945_Zm_2003"/>
+  </clade>
+  <calibration id="cal94">
+    <lower>2003.000000</lower>
+    <upper>2003.000000</upper>
+    <appliesto clade.id="clad94"/>
+  </calibration>
+  <clade id="clad95">
+    <taxon value="AY646354_Hs_2002"/>
+  </clade>
+  <calibration id="cal95">
+    <lower>2002.000000</lower>
+    <upper>2002.000000</upper>
+    <appliesto clade.id="clad95"/>
+  </calibration>
+  <clade id="clad96">
+    <taxon value="AY289214_Hs_2002.62"/>
+  </clade>
+  <calibration id="cal96">
+    <lower>2002.620000</lower>
+    <upper>2002.620000</upper>
+    <appliesto clade.id="clad96"/>
+  </calibration>
+  <clade id="clad97">
+    <taxon value="AF533540_Hs_2001.71"/>
+  </clade>
+  <calibration id="cal97">
+    <lower>2001.710000</lower>
+    <upper>2001.710000</upper>
+    <appliesto clade.id="clad97"/>
+  </calibration>
+  <clade id="clad98">
+    <taxon value="AF404756_Cb_2000"/>
+  </clade>
+  <calibration id="cal98">
+    <lower>2000.000000</lower>
+    <upper>2000.000000</upper>
+    <appliesto clade.id="clad98"/>
+  </calibration>
+  <clade id="clad99">
+    <taxon value="AF404755_Bu_2000"/>
+  </clade>
+  <calibration id="cal99">
+    <lower>2000.000000</lower>
+    <upper>2000.000000</upper>
+    <appliesto clade.id="clad99"/>
+  </calibration>
+  <clade id="clad100">
+    <taxon value="AF404754_Cp_2000"/>
+  </clade>
+  <calibration id="cal100">
+    <lower>2000.000000</lower>
+    <upper>2000.000000</upper>
+    <appliesto clade.id="clad100"/>
+  </calibration>
+  <clade id="clad101">
+    <taxon value="AF404753_Cb_2000"/>
+  </clade>
+  <calibration id="cal101">
+    <lower>2000.000000</lower>
+    <upper>2000.000000</upper>
+    <appliesto clade.id="clad101"/>
+  </calibration>
+  <clade id="clad102">
+    <taxon value="AF260967_Ec_1999"/>
+  </clade>
+  <calibration id="cal102">
+    <lower>1999.000000</lower>
+    <upper>1999.000000</upper>
+    <appliesto clade.id="clad102"/>
+  </calibration>
+  <clade id="clad103">
+    <taxon value="AF202541_Hs_1999.66"/>
+  </clade>
+  <calibration id="cal103">
+    <lower>1999.660000</lower>
+    <upper>1999.660000</upper>
+    <appliesto clade.id="clad103"/>
+  </calibration>
+  <clade id="clad104">
+    <taxon value="AF196835_Pc_1999.71"/>
+  </clade>
+  <calibration id="cal104">
+    <lower>1999.710000</lower>
+    <upper>1999.710000</upper>
+    <appliesto clade.id="clad104"/>
+  </calibration>
+</phyrex>
