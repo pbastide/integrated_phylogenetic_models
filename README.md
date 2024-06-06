@@ -1,4 +1,4 @@
-# Repository to reproduce the analyses in Guindon, Bastide et al. 2024.
+# Repository to reproduce the analyses in Bastide, Guindon, et al. 2024.
 
 ## Content
 
