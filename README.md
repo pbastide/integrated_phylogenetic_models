@@ -4,12 +4,12 @@
 
 Please refer to the `README` files in each sub-directory for more information on the analyses.
 All the `R` scripts assume that the working directory is the root directory
-(location of the `.here` file).
+(location of the `.Rproj` and `.here` files).
 
-* `beast_install`: beast jar file to reproduce the analyses.
+* `beast_install`: BEAST jar file to reproduce the analyses.
 
-* `crossvalidation`: cross validation analyses on the WVN with phyrex.
-	* `generate_xml.R`: `R` script to format `PhyREX` xmls produced by `wnvcv`.
+* `crossvalidation`: cross validation analyses on the WVN with PhyREX.
+	* `generate_xml.R`: `R` script to format PhyREX xmls produced by `wnvcv`.
 	* `WNV_RRW_tree_1.xml`: `BEAST` xml configuration file from [Dellicour et al 2020]([here](https://github.com/sdellicour/wnv_north_america/blob/master/Scripts_%26_data/Continuous_phylogeographic_analyses/WNV_RRW_tree_1.xml)).
 	* `postprocesscv.R`: script to plot the results.
 
@@ -18,24 +18,24 @@ All the `R` scripts assume that the working directory is the root directory
   [Pybus et al. 2012](www.doi.org/10.1073/pnas.1206598109).
 
 * `likelihood_tests`: test of likelihood computations.
-	* `beast`: beast xmls.
-	* `phyrex`: phyrex xmls.
+	* `beast`: BEAST xmls.
+	* `phyrex`: PhyREX xmls.
 	* `prune_tree.R`: R script to prune the WNV tree.
-	* `test_likelihood_beast.R`: compare beast and R likelihoods.
-	* `test_likelihood_phyrex.R`: compare phyrex and R likelihoods.
+	* `test_likelihood_beast.R`: compare BEAST and R likelihoods.
+	* `test_likelihood_phyrex.R`: compare PhyREX and R likelihoods.
 	* `util.R`: R utility functions for likelihood computation.
 
-* `phyrex_beast_comparison`: comparison of beast and phyrex results on the WNV example.
-  * `01_run_phyrex_beast.R`: script to run `PhyREX` and `BEAST` programs.
+* `phyrex_beast_comparison`: comparison of BEAST and PhyREX results on the WNV example.
+  * `01_run_phyrex_beast.R`: script to run PhyREX and BEAST programs.
   * `02_ESS_comparisons.R`: script to show the ESS comparisons.
   * `03_parameter_plots.R`: script to plot the estimated parameters.
 	* `fixed_tree`: Comparisons on a fixed tree.
-		* `beast`: beast xmls.
-		* `phyrex`: phyrex xmls.
+		* `beast`: BEAST xmls.
+		* `phyrex`: PhyREX xmls.
 		* `results`: files produced by the R script.
 	* `inferred_tree`: Comparisons on a fixed tree.
-		* `beast`: beast xmls.
-		* `phyrex`: phyrex xmls.
+		* `beast`: BEAST xmls.
+		* `phyrex`: PhyREX xmls.
 		* `results`: files produced by the R script.
 		
 * `simulations_speed_estimation`: simulation study for the velocity estimation.
@@ -46,7 +46,7 @@ All the `R` scripts assume that the working directory is the root directory
 
 * `plot_trajectories/simulations_trajectories.R`: plot trajectories of integrated processes.
 
-* `wnv_prediction`: predictions using tip velocities with phyrex.
+* `wnv_prediction`: predictions using tip velocities with PhyREX.
   * `2000`, `2001`, `2002`, `2003`, `2004`, `2005`, `2006`, `2007`: WNV data, split by years.
   * `predict.cleanup.py`: script to make predictions from the IBM model with `PhyREX`.
   * `map_predict.R`: script to plot the predictions.

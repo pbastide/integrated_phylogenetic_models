@@ -1,11 +1,11 @@
 # Phyrex vs BEAST implementations
 
-The files in this repository compare the results of phyrex and beast on a 
+The files in this repository compare the results of PhyREX and BEAST on a 
 fixed tree, with data from [Pybus et al. 2012](www.doi.org/10.1073/pnas.1206598109).
 
 ## Requirements
 
-* `phyrex` and `BEAST` must be installed from their respective `master` branches.
+* PhyREX and BEAST must be installed (see main `README.md` for instructions).
 
 * The data is available in the repository, in the `data` folder.
 
@@ -16,13 +16,13 @@ fixed tree, with data from [Pybus et al. 2012](www.doi.org/10.1073/pnas.12065981
 * `03_parameter_plots.R`: R script to plot the estimated parameters.
 
 * `fixed_tree`: folder containing the fixed tree analyses
-  * `beast`: beast xml files to run the analyses.
-  * `phyrex`: phyrex xml files to run the analyses.
+  * `beast`: BEAST xml files to run the analyses.
+  * `phyrex`: PhyREX xml files to run the analyses.
   * `results`: all files produced by the R scripts will be stored in results.
     Some results obtained on our own machine are provided for convenience.
     
 * `inferred_tree`: folder containing the inferred tree analyses
-  * `beast`: beast xml files to run the analyses.
-  * `phyrex`: phyrex xml files to run the analyses.
+  * `beast`: BEAST xml files to run the analyses.
+  * `phyrex`: PhyREX xml files to run the analyses.
   * `results`: all files produced by the R scripts will be stored in results.
     Some results obtained on our own machine are provided for convenience.
