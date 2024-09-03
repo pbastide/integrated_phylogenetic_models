@@ -48,9 +48,9 @@ Generate PhyREX configuration files for IBM and RRW models using `python3 ./prep
 
 Run `PhyREX` on each produced file using the command:
 ```
-cd YEAR; phyrex phyrex --xml=./wnv_config_XXX.xml;
+python3 ./multi_phyrex.py
 ```
-(replacing `YEAR` and `XXX` by the appropriate quantities.)
+Note that you will need to have a working `phyrex` binary file in the `integrated_phylogenetic_models/phyrex_install/`directory.
 
 ## Predicting WNV dispersion
 
