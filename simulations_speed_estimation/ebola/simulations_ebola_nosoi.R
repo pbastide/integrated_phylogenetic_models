@@ -91,6 +91,7 @@ ggplot() + layer_spatial(population) + labs(x="", y="") +
                      breaks=c(6,60,600,6000,60000),labels=c(6,60,600,6000,60000))
 
 geosphere::distHaversine(start.pos, start.pos + c(0.1, 0.1), r = 6371)
+geosphere::distHaversine(start.pos, start.pos + c(0.05, 0.05), r = 6371)
 
 #pExit:
 p_Exit_fct <- function(t, t_incub){
@@ -102,11 +103,12 @@ p_Exit_fct <- function(t, t_incub){
 }
 #pMove:
 p_Move_fct <- function(t, t_incub){
-  if (t <= t_incub) { p = 1 }
+  if (t <= t_incub) { p = 0.2 }
   if (t > t_incub) { p = 0}
   return(p)}
-#sdMove:
-sdMove_fct <- function(t){0.1} # sd of 15.63696 km per move
+# sdMove : mean and variance of the sd move parameter across simulations (log normal)
+m_sd_move <- 0.1  # mean of 15.63696 km
+sd_sd_move <- 0.1 # sd of 15.63696 km
 #nContact:
 n_contact <- function(t, current.env.value, host.count){
   if(host.count < current.env.value){return(3)}
@@ -146,6 +148,12 @@ for (n_sim in 1:100) {
   while (ninf <= 100) {
     i_sim <- i_sim + 1
     print(i_sim)
+    # sdMove
+    sd_move <- rlnorm(1,
+                      meanlog = log(m_sd_move) - 1/2 * log(sd_sd_move^2/m_sd_move^2 + 1),
+                      sdlog = sqrt(log(sd_sd_move^2/m_sd_move^2 + 1)))
+    sdMove_fct <- function(t){sd_move} # sd of 15.63696 km per move
+    # sim
     sim_ebola <- try(nosoiSim(
       type = "single", popStructure = "continuous",
       length = 365,
@@ -233,6 +241,9 @@ for (n_sim in 1:100) {
                   file = file.path(data_dir, paste0(n_sim, "_sim_nosoi_tree.tree")))
   write.table(true_speed,
               file = file.path(data_dir, paste0(n_sim, "_sim_nosoi_true_speed.txt")),
+              quote = FALSE, row.names = FALSE, col.names = FALSE)
+  write.table(sd_move,
+              file = file.path(data_dir, paste0(n_sim, "_sim_nosoi_true_sd_move.txt")),
               quote = FALSE, row.names = FALSE, col.names = FALSE)
 
   ## write formated dates for phyrex
