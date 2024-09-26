@@ -4,6 +4,7 @@ library("tools");
 library("ggplot2");
 library("RColorBrewer")
 library("stringr");
+library("dplyr");
 
 qp <- function(a,b)
 {
@@ -23,23 +24,24 @@ get.model.col <- function(model.id,all.col)
 b.prop = 0.1;
 chain.len = 1000;
 
-ibm.col = rgb(194/255,113/255,105/255,alpha=0.8);
-iwn.col = rgb(177/255,198/255,209/255,alpha=0.8);
-iou.col = rgb(127/255,120/255,209/255,alpha=0.8);
-rrw.col = rgb(117/255,168/255,109/255,alpha=0.8);
+ibm.col = rgb(220/255,13/255,10/255,alpha=0.6);
+iwn.col = rgb(177/255,198/255,209/255,alpha=0.6);
+iou.col = rgb(250/255,210/255,1/255,alpha=0.6);
+rrw.col = rgb(10/255,168/255,109/255,alpha=0.6);
 
 model.names = c("ibm","rrw","iou");
 ## model.names = c("ibm","rrw","iou","iwn");
 ## model.names = c("rrw","ibm");
 n.models = length(model.names);
 
-all.col = 1:n.models;
-for(i in 1:n.models)
-{
-    all.col[i] = as.vector(sapply(as.vector(sapply(model.names,qp,".col")),get))[i]
-}
+# all.col = 1:n.models;
+# for(i in 1:n.models)
+# {
+#     all.col[i] = as.vector(sapply(as.vector(sapply(model.names,qp,".col")),get))[i]
+# }
+all.col = c(ibm.col,iwn.col,iou.col,rrw.col);
 
-data.dir = "./ibm/";
+data.dir = ".";
 
 all.df = list();
 
@@ -75,15 +77,17 @@ completed = 1:n.datasets;
 for(i in 1:n.datasets)
 {
     completed[i] = 1;
+    complete = 1;
     for(j in 1:n.models)
-    {
+    {        
         if(dim(all.df[[j]][[i]])[1] < chain.len)
         {
-            cat("model: ",model.names[j]," data set:",i,"len: ",dim(all.df[[j]][[i]])[1],"\n")
+            cat("!!!! model: ",model.names[j]," data set:",i,"len: ",dim(all.df[[j]][[i]])[1],"\n")
+            complete = 0
             break;
         }
     }
-    if(j != n.models) { completed[i] = 0; }
+    if(complete == 0) { completed[i] = 0; }
 }
 
 completed = which(completed > 0);
@@ -146,12 +150,16 @@ cat("Finished MSE calculations...\n");
 
 plot.df = data.frame(speed=rep(truth[completed],n.models), mse = mse.veloc, est.speed = est.speed, model = rep(model.names,each=n.completed));
 
-p = ggplot(plot.df,aes(x=speed,y=mse,color=model)) +
+p = ggplot(plot.df %>% arrange(desc(model)),aes(x=speed,y=mse,color=model)) +
     geom_point(size=4) +
-    scale_colour_manual(values = sapply(levels(as.factor(plot.df$model)),get.model.col,all.col));
+    scale_colour_manual(values = sapply(levels(as.factor(plot.df$model)),get.model.col,all.col))+
+    theme_classic();
 
-q = ggplot(plot.df,aes(x=speed,y=est.speed,color=model)) +
+
+q = ggplot(plot.df %>% arrange(desc(model)),aes(x=speed,y=est.speed,color=model)) +
     geom_point(size=4) +
     geom_abline(intercept=0,slope=1)+
-    scale_colour_manual(values = sapply(levels(as.factor(plot.df$model)),get.model.col,all.col));
+    scale_colour_manual(values = sapply(levels(as.factor(plot.df$model)),get.model.col,all.col))+
+    theme_classic();
+
 
