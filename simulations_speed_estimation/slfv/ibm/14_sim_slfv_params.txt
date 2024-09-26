@@ -1,5 +1,0 @@
-
-. Parameter boundaries: lambda:[1E-06,10000]; mu=[0,1]; rad=[0,20]
-. Useful parameters: lambda=1000; mu=1; rad=0.157988; clockr=0.00109752; sigsq=0.0782902
-. Useful statistics: t.root=-1552.859366 n.int=1553061 n.coal=49 n.hit=13593 root.x=0.777372 root.y=9.409463 nt.div=0.730808
-. Average speed: 0.422592
