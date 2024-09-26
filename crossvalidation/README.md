@@ -47,5 +47,12 @@ Run the cross validation analyses using the command-lines below. Make sure to re
 ./phyrex --xml=wnv_config_rrw.xml > rrw.out;
 ```
 
-Distributions of distance between estimated and true locations were then plotted using `postprocesscv.R`.
+Postprocess the standard output files of PhyREX analysis:
+```
+grep CV ibm.out > ibm.bkp;
+grep CV iou.out > iou.bkp;
+grep CV rrw.out > rrw.bkp;
+```
+
+Distributions of distances between estimated and true locations were then plotted using `postprocesscv.R`.
 
