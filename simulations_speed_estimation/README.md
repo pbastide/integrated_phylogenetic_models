@@ -25,7 +25,7 @@ The script `datagen.pl` then runs `phyrexsim` to produce the synthetic data:
 ```
 perl ./datagen.pl
 ```
-This produces the `.xml`, sequence and coordinate files in the current folder. These files are already provided here for convenience.
+This produces `.xml`, sequence and coordinate files in the current folder. These files are already provided here for convenience.
 
 ### Data analysis
 
