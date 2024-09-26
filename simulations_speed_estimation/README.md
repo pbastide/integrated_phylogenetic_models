@@ -4,7 +4,7 @@
 
 ## Spatial Lambda-Fleming-Viot 
 
-Directory `slfv` contains simulation and analyses for datasets simulated using
+Directory `slfv` contains configuration and data files for datasets simulated using
 the Spatial Lambda-Fleming-Viot process.
 
 ### Data simulation
@@ -25,7 +25,7 @@ The script `datagen.pl` then runs `phyrexsim` to produce the synthetic data:
 ```
 perl ./datagen.pl
 ```
-This produces the `.xml` files in the `ibm` folder, that are provided here for convenience.
+This produces the `.xml`, sequence and coordinate files in the current folder. These files are already provided here for convenience.
 
 ### Data analysis
 
