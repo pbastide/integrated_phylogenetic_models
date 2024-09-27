@@ -53,7 +53,7 @@ Sequences were then simulated using a Kimura two parameters model.
 
 The script uses a raster of African population density, that is downloaded from 
 [here](https://github.com/slequime/nosoi/raw/master/docs/articles/examples/Africa_pop_2015.tif.zip).
-The data produced goes in the `data_ebola` directory.
+The data produced goes in the `ebola` directory.
 
 ### Data analysis
 
