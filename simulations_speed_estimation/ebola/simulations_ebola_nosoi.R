@@ -97,7 +97,7 @@ geosphere::distHaversine(start.pos, start.pos + c(0.05, 0.05), r = 6371)
 p_Exit_fct <- function(t, t_incub){
   t_recovery = 20 # days before recovery
   if (t <= t_incub) { p = 0 }
-  if ((t > t_incub)&(t < (t_incub+t_recovery))) { p = 0.025 } # 50% chance to dye before recovery
+  if ((t > t_incub)&(t < (t_incub+t_recovery))) { p = 0.025 } # 50% chance to die before recovery
   if (t > (t_incub+t_recovery)) { p = 1 }
   return(p)
 }

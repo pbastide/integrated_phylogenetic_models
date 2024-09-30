@@ -269,18 +269,18 @@ pIOU
 ##############################################################################
 
 bottom_row <- plot_grid(pBM, pOU, pIBM, pIOU,
-                        labels = paste0("(", letters[4:8], ")"),
+                        labels = paste0("(", letters[c(2,3,5,7)], ")"),
                         label_size = 12, nrow = 1,
                         align = "v")
 top_row <- plot_grid(ggdraw(ptree), pBMveloc, pOUveloc,
-                     labels = paste0("(", letters[1:3], ")"), label_size = 12, nrow = 1,
+                     labels = paste0("(", letters[c(1,4,6)], ")"), label_size = 12, nrow = 1,
                      rel_widths = c(2, 1, 1))
 p <- plot_grid(top_row, bottom_row, ncol = 1)
 p
 
 library(here)
 twocolumnwidth <- 10
-ggsave(filename = here("simulation_plots", "trajectories_process_and_tree.pdf"),
+ggsave(filename = here("plot_trajectories", "trajectories_process_and_tree.pdf"),
        plot = p,
        width = twocolumnwidth,
        height = twocolumnwidth / 2,
