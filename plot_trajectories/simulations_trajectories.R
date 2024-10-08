@@ -105,7 +105,7 @@ plot_process_on_tree <- function(dftree) {
   endPoints <- endPoints[endPoints$edge %in% which(tree$edge[, 2] <= 5), ]
   p <-
     ggplot(dftree, aes(x, y, color = as.factor(edge))) +
-    geom_path(linewidth = 1) +
+    geom_path(linewidth = 0.8) +
     coord_fixed(ratio = 1) +
     # geom_point(data = endPoints, size = 5) +
     theme_bw() +
@@ -140,9 +140,9 @@ col_orig <- c(reds[c(5, 3, 2, 1, 4)], blues[3:1])
 
 ptree <- function() {
   par(mar = c(2, 0, 0, 1))
-  plot(tree, edge.color = col_orig, edge.width = 5, show.tip.label = FALSE, root.edge = TRUE)
+  plot(tree, edge.color = col_orig, edge.width = 4, show.tip.label = FALSE, root.edge = TRUE)
   add.scale.bar(0, 1, length = 1, ask = FALSE,
-                lwd = 5, lcol = "black", pos = 4)
+                lwd = 4, lcol = "black", pos = 4)
   # axis(1, at = 0:4*2, labels = 2000 + 2*0:4)
 }
 ggdraw(ptree)
@@ -279,7 +279,7 @@ p <- plot_grid(top_row, bottom_row, ncol = 1)
 p
 
 library(here)
-twocolumnwidth <- 10
+twocolumnwidth <- 8
 ggsave(filename = here("plot_trajectories", "trajectories_process_and_tree.pdf"),
        plot = p,
        width = twocolumnwidth,

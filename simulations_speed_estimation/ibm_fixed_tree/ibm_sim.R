@@ -194,20 +194,20 @@ columnwidth <- 5
 library(ggplot2)
 
 variables <- c(
-  "varLat" = "variance",
-  "varLon" = "variance",
-  "posLatRoot" = "root position",
-  "posLonRoot" = "root position",
-  "velLatRoot" = "root velocity",
-  "velLonRoot" = "root velocity"
+  "varLat" = "IBM Variance",
+  "varLon" = "IBM Variance",
+  "posLatRoot" = "Root position (degrees)",
+  "posLonRoot" = "Root position (degrees)",
+  "velLatRoot" = "Root velocity (deg./year)",
+  "velLonRoot" = "Root velocity (deg./year)"
 )
 coord <- c(
-  "varLat" = "lattitude",
-  "varLon" = "longitude",
-  "posLatRoot" = "lattitude",
-  "posLonRoot" = "longitude",
-  "velLatRoot" = "lattitude",
-  "velLonRoot" = "longitude"
+  "varLat" = "Latitude",
+  "varLon" = "Longitude",
+  "posLatRoot" = "Latitude",
+  "posLonRoot" = "Longitude",
+  "velLatRoot" = "Latitude",
+  "velLonRoot" = "Longitude"
 )
 all_estim$variable <- variables[all_estim$params]
 all_estim$coord <- coord[all_estim$params]
@@ -219,6 +219,7 @@ ggplot(all_estim, aes(x = coord, y = (estim - true) / true)) +
   geom_hline(yintercept = 0, linetype = "dashed") +
   theme_bw() +
   xlab("") +
+  ylab("Normalized difference") +
   scale_color_viridis_d(name = "", option = "inferno", begin = 0.8, end = 0.1) +
   scale_fill_viridis_d(name = "", option = "inferno", begin = 0.8, end = 0.1) +
   theme(text = element_text(size = 10),
@@ -241,7 +242,7 @@ ggsave(here("simulations_speed_estimation/ibm_fixed_tree/results", "parameter_es
 
 ggplot(all_dist_root, aes(x = params, y = value)) +
   # facet_wrap(facets = vars(variable), scales = "free") +
-  geom_boxplot() +
+  geom_violin() +
   # geom_point(aes(y = true)) +
   geom_hline(yintercept = 0, linetype = "dashed") +
   theme_bw() +
@@ -348,12 +349,16 @@ ggplot(subset(all_anc, param %in% c("vLat", "vLong")), aes(x = param, y = estim 
         # axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)
   )
 
-ggplot(subset(all_anc, param %in% c("vLat", "vLong")), aes(x = param, y = estim - true)) +
+tmp_plot <- subset(all_anc, param %in% c("vLat", "vLong"))
+tmp_plot$param[tmp_plot$param == "vLong"] <- "Longitude"
+tmp_plot$param[tmp_plot$param == "vLat"] <- "Latitude"
+pvel <- ggplot(tmp_plot, aes(x = param, y = estim - true)) +
   geom_violin() +
   geom_hline(yintercept = 0, linetype = "dashed") +
   theme_bw() +
   xlab("") +
-  ggtitle("Tip velocity estimation") +
+  ylab("Estimated minus true velocity") +
+  ggtitle("Tip velocity \n (degrees)") +
   scale_color_viridis_d(name = "", option = "inferno", begin = 0.8, end = 0.1) +
   scale_fill_viridis_d(name = "", option = "inferno", begin = 0.8, end = 0.1) +
   theme(text = element_text(size = 10),
@@ -368,18 +373,50 @@ ggplot(subset(all_anc, param %in% c("vLat", "vLong")), aes(x = param, y = estim 
         # plot.margin = unit(c(0.1,0.1,-0.31,-0.5), "cm"),
         # axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)
   )
+pvel
 ggsave(here("simulations_speed_estimation/ibm_fixed_tree/results", "tip_velocity_estimation.pdf"),
+       plot = pvel,
        width = columnwidth,
        height = columnwidth / 2,
        unit = "in")
 
-ggplot(subset(all_anc, param %in% c("speed")), aes(x = true, y = estim)) +
+tmp_plot <- tip_coverage
+tmp_plot$name[tmp_plot$name == "vLong"] <- "Longitude"
+tmp_plot$name[tmp_plot$name == "vLat"] <- "Latitude"
+pcov <- ggplot(tmp_plot, aes(x = name, y = coverage)) +
+  geom_violin() +
+  geom_hline(yintercept = 0.95, linetype = "dashed") +
+  theme_bw() +
+  xlab("") +
+  ggtitle("Coverage") +
+  scale_color_viridis_d(name = "", option = "inferno", begin = 0.8, end = 0.1) +
+  scale_fill_viridis_d(name = "", option = "inferno", begin = 0.8, end = 0.1) +
+  theme(text = element_text(size = 10),
+        # title = element_text(size = 7),
+        # panel.grid.minor = element_blank(),
+        legend.position = "inside",
+        legend.position.inside = c(0.99, 0.99),
+        legend.justification = c("right", "top"),
+        legend.key.size = unit(10, 'pt'),
+        strip.placement = "outside",
+        strip.background = element_blank(),
+        # plot.margin = unit(c(0.1,0.1,-0.31,-0.5), "cm"),
+        # axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)
+  )
+pcov
+ggsave(here("simulations_speed_estimation/ibm_fixed_tree/results", "tip_velocity_coverage.pdf"),
+       plot = pcov,
+       width = columnwidth,
+       height = columnwidth / 2,
+       unit = "in")
+
+pspeed <- ggplot(subset(all_anc, param %in% c("speed")), aes(x = true, y = estim)) +
   geom_point() +
   geom_abline(slope = 1, intercept = 0, linetype = "dashed") +
   theme_bw() +
   xlab("True speed") +
   ylab("Estimated speed") +
-  ggtitle("Tip speed estimation") +
+  ggtitle("Tip speed \n (km/year)") +
   scale_color_viridis_d(name = "", option = "inferno", begin = 0.8, end = 0.1) +
   scale_fill_viridis_d(name = "", option = "inferno", begin = 0.8, end = 0.1) +
   theme(text = element_text(size = 10),
@@ -394,33 +431,21 @@ ggplot(subset(all_anc, param %in% c("speed")), aes(x = true, y = estim)) +
         # plot.margin = unit(c(0.1,0.1,-0.31,-0.5), "cm"),
         # axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)
   )
+pspeed
 ggsave(here("simulations_speed_estimation/ibm_fixed_tree/results", "tip_speed_estimation.pdf"),
+       plot = pspeed,
        width = columnwidth,
        height = columnwidth / 2,
        unit = "in")
 
-ggplot(tip_coverage, aes(x = name, y = coverage)) +
-  geom_violin() +
-  geom_hline(yintercept = 0.95, linetype = "dashed") +
-  theme_bw() +
-  xlab("") +
-  ggtitle("Tip velocity coverage") +
-  scale_color_viridis_d(name = "", option = "inferno", begin = 0.8, end = 0.1) +
-  scale_fill_viridis_d(name = "", option = "inferno", begin = 0.8, end = 0.1) +
-  theme(text = element_text(size = 10),
-        # title = element_text(size = 7),
-        # panel.grid.minor = element_blank(),
-        legend.position = "inside",
-        legend.position.inside = c(0.99, 0.99),
-        legend.justification = c("right", "top"),
-        legend.key.size = unit(10, 'pt'),
-        strip.placement = "outside",
-        strip.background = element_blank(),
-        # plot.margin = unit(c(0.1,0.1,-0.31,-0.5), "cm"),
-        # axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)
-  )
-ggsave(here("simulations_speed_estimation/ibm_fixed_tree/results", "tip_velocity_coverage.pdf"),
+ptip <- cowplot::plot_grid(pspeed, pvel, pcov,
+                           labels = paste0("(", letters[1:3], ")"),
+                           label_size = 12, nrow = 1,
+                           align = "v")
+ptip
+ggsave(here("simulations_speed_estimation/ibm_fixed_tree/results", "tip_speed_veloc_estim.pdf"),
+       plot = ptip,
        width = columnwidth,
-       height = columnwidth / 2,
+       height = 3 * columnwidth / 5,
        unit = "in")
 
