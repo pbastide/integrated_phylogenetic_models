@@ -51,7 +51,6 @@
 *.doc
 *.docx
 *.odt
-*.csv
 *.xls
 *.xlsx
 *.ods
