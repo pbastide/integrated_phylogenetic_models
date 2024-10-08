@@ -1,0 +1,2149 @@
+
+<phyrex run.id="rrw" output.file="wnv_predict_1702653048" mcmc.chain.len="2E+8" mcmc.sample.every="1E+4" mcmc.print.every="1E+4" mcmc.burnin="1E+6" mutmap="no" ignore.sequences="no" mcmc.output.trees="yes">
+	<spatialmodel name="rrw+gamma" rw.prior.distrib="flat" rw.root.var.velocity="1.E+2" rw.root.mean.velocity="0.0" rw.root.var.location="1E+2" sampling="detection" integrateAncestralLocations="true" distance.type="greatcircle" observational.model="yes">
+	</spatialmodel>
+	<lineagerates model="lognormal" autocor.prior.rate="100">
+	</lineagerates>
+	<treegenerating model="coalescent" neff.prior.distrib="flat" fix.node.ages="no">
+	</treegenerating>
+	<clockrate prior.mean="0.00058" prior.var="1.E-2">
+	</clockrate>
+	<topology>
+		<instance id="T1" init.tree="BioNJ">
+		</instance>
+	</topology>
+	<ratematrices id="RM1">
+		<instance id="M1" model="HKY85" optimise.tstv="yes">
+		</instance>
+	</ratematrices>
+	<siterates id="SR1">
+		<instance id="R1" init.value="1.0">
+		</instance>
+		<weights id="D1" family="freerates">
+			<instance appliesto="R1" value="0.25">
+			</instance>
+		</weights>
+	</siterates>
+	<equfreqs id="EF1">
+		<instance id="F1" optimise.freqs="no">
+		</instance>
+	</equfreqs>
+	<branchlengths id="BL1">
+		<instance id="L1" optimise.lens="yes">
+		</instance>
+	</branchlengths>
+	<partitionelem id="partition1" file.name="seq.txt" data.type="nt" interleaved="no">
+		<mixtureelem list="T1">
+		</mixtureelem>
+		<mixtureelem list="M1">
+		</mixtureelem>
+		<mixtureelem list="F1">
+		</mixtureelem>
+		<mixtureelem list="R1">
+		</mixtureelem>
+		<mixtureelem list="L1">
+		</mixtureelem>
+	</partitionelem>
+	<coordinates id="coordinates" file.name="coord.txt">
+	</coordinates>
+	<clade id="clad1">
+		<taxon value="DQ080062_2002_USA_LA_Iberia_-92.007856_29.563503">
+		</taxon>
+	</clade>
+	<calibration id="cal1">
+		<lower>
+		2002.0
+		</lower>
+		<upper>
+		2002.0
+		</upper>
+		<appliesto clade.id="clad1">
+		</appliesto>
+	</calibration>
+	<clade id="clad2">
+		<taxon value="KX547203_2001.7562_USA_NY_Suffolk_-72.119556_41.201801">
+		</taxon>
+	</clade>
+	<calibration id="cal2">
+		<lower>
+		2001.7562
+		</lower>
+		<upper>
+		2001.7562
+		</upper>
+		<appliesto clade.id="clad2">
+		</appliesto>
+	</calibration>
+	<clade id="clad3">
+		<taxon value="KJ501288_2001.7123_USA_DC_DistrictofColumbia_-76.948839_38.919233">
+		</taxon>
+	</clade>
+	<calibration id="cal3">
+		<lower>
+		2001.7123
+		</lower>
+		<upper>
+		2001.7123
+		</upper>
+		<appliesto clade.id="clad3">
+		</appliesto>
+	</calibration>
+	<clade id="clad4">
+		<taxon value="KX547584_2002.6795_USA_NY_Chemung_-76.83716_42.175741">
+		</taxon>
+	</clade>
+	<calibration id="cal4">
+		<lower>
+		2002.6795
+		</lower>
+		<upper>
+		2002.6795
+		</upper>
+		<appliesto clade.id="clad4">
+		</appliesto>
+	</calibration>
+	<clade id="clad5">
+		<taxon value="KX547619_2002.6192_USA_NY_Onondaga_-76.167951_43.047829">
+		</taxon>
+	</clade>
+	<calibration id="cal5">
+		<lower>
+		2002.6192
+		</lower>
+		<upper>
+		2002.6192
+		</upper>
+		<appliesto clade.id="clad5">
+		</appliesto>
+	</calibration>
+	<clade id="clad6">
+		<taxon value="KJ501322_2002.6904_USA_MN_Marshall_-96.326079_48.177237">
+		</taxon>
+	</clade>
+	<calibration id="cal6">
+		<lower>
+		2002.6904
+		</lower>
+		<upper>
+		2002.6904
+		</upper>
+		<appliesto clade.id="clad6">
+		</appliesto>
+	</calibration>
+	<clade id="clad7">
+		<taxon value="KX547474_2002.7753_USA_NY_Albany_-74.157579_42.722313">
+		</taxon>
+	</clade>
+	<calibration id="cal7">
+		<lower>
+		2002.7753
+		</lower>
+		<upper>
+		2002.7753
+		</upper>
+		<appliesto clade.id="clad7">
+		</appliesto>
+	</calibration>
+	<clade id="clad8">
+		<taxon value="KJ501486_2001.7096_USA_NJ_Mercer_-74.732862_40.208352">
+		</taxon>
+	</clade>
+	<calibration id="cal8">
+		<lower>
+		2001.7096
+		</lower>
+		<upper>
+		2001.7096
+		</upper>
+		<appliesto clade.id="clad8">
+		</appliesto>
+	</calibration>
+	<clade id="clad9">
+		<taxon value="HM756648_2002.7288_USA_CT_Fairfield_-73.190918_41.319004">
+		</taxon>
+	</clade>
+	<calibration id="cal9">
+		<lower>
+		2002.7288
+		</lower>
+		<upper>
+		2002.7288
+		</upper>
+		<appliesto clade.id="clad9">
+		</appliesto>
+	</calibration>
+	<clade id="clad10">
+		<taxon value="KJ501376_2002.7096_USA_OH_Medina_-81.842006_41.199636">
+		</taxon>
+	</clade>
+	<calibration id="cal10">
+		<lower>
+		2002.7096
+		</lower>
+		<upper>
+		2002.7096
+		</upper>
+		<appliesto clade.id="clad10">
+		</appliesto>
+	</calibration>
+	<clade id="clad11">
+		<taxon value="KJ501331_2002.6959_USA_OH_Montgomery_-84.216811_39.879222">
+		</taxon>
+	</clade>
+	<calibration id="cal11">
+		<lower>
+		2002.6959
+		</lower>
+		<upper>
+		2002.6959
+		</upper>
+		<appliesto clade.id="clad11">
+		</appliesto>
+	</calibration>
+	<clade id="clad12">
+		<taxon value="KX547305_2002.6466_USA_NY_Albany_-74.202122_42.602587">
+		</taxon>
+	</clade>
+	<calibration id="cal12">
+		<lower>
+		2002.6466
+		</lower>
+		<upper>
+		2002.6466
+		</upper>
+		<appliesto clade.id="clad12">
+		</appliesto>
+	</calibration>
+	<clade id="clad13">
+		<taxon value="KX547263_2002.7068_USA_NY_Albany_-74.052004_42.712293">
+		</taxon>
+	</clade>
+	<calibration id="cal13">
+		<lower>
+		2002.7068
+		</lower>
+		<upper>
+		2002.7068
+		</upper>
+		<appliesto clade.id="clad13">
+		</appliesto>
+	</calibration>
+	<clade id="clad14">
+		<taxon value="KX547179_2002.6_USA_NY_Richmond_-74.202638_40.577674">
+		</taxon>
+	</clade>
+	<calibration id="cal14">
+		<lower>
+		2002.6
+		</lower>
+		<upper>
+		2002.6
+		</upper>
+		<appliesto clade.id="clad14">
+		</appliesto>
+	</calibration>
+	<clade id="clad15">
+		<taxon value="KJ501516_2001.7178_USA_OH_Wood_-83.534368_41.17912">
+		</taxon>
+	</clade>
+	<calibration id="cal15">
+		<lower>
+		2001.7178
+		</lower>
+		<upper>
+		2001.7178
+		</upper>
+		<appliesto clade.id="clad15">
+		</appliesto>
+	</calibration>
+	<clade id="clad16">
+		<taxon value="KX547566_2002.5589_USA_NY_Onondaga_-76.239879_42.952092">
+		</taxon>
+	</clade>
+	<calibration id="cal16">
+		<lower>
+		2002.5589
+		</lower>
+		<upper>
+		2002.5589
+		</upper>
+		<appliesto clade.id="clad16">
+		</appliesto>
+	</calibration>
+	<clade id="clad17">
+		<taxon value="KJ501377_2001.6411_USA_OH_Allen_-84.209409_40.68497">
+		</taxon>
+	</clade>
+	<calibration id="cal17">
+		<lower>
+		2001.6411
+		</lower>
+		<upper>
+		2001.6411
+		</upper>
+		<appliesto clade.id="clad17">
+		</appliesto>
+	</calibration>
+	<clade id="clad18">
+		<taxon value="KJ501306_2002.737_USA_MI_Lenawee_-83.878654_41.784062">
+		</taxon>
+	</clade>
+	<calibration id="cal18">
+		<lower>
+		2002.737
+		</lower>
+		<upper>
+		2002.737
+		</upper>
+		<appliesto clade.id="clad18">
+		</appliesto>
+	</calibration>
+	<clade id="clad19">
+		<taxon value="KJ501362_2001.7479_USA_OH_Cuyahoga_-81.616047_41.47147">
+		</taxon>
+	</clade>
+	<calibration id="cal19">
+		<lower>
+		2001.7479
+		</lower>
+		<upper>
+		2001.7479
+		</upper>
+		<appliesto clade.id="clad19">
+		</appliesto>
+	</calibration>
+	<clade id="clad20">
+		<taxon value="KX547336_2002.6877_USA_NY_Essex_-73.624699_44.16769">
+		</taxon>
+	</clade>
+	<calibration id="cal20">
+		<lower>
+		2002.6877
+		</lower>
+		<upper>
+		2002.6877
+		</upper>
+		<appliesto clade.id="clad20">
+		</appliesto>
+	</calibration>
+	<clade id="clad21">
+		<taxon value="AY289214_2002.6192_USA_TX_Jefferson_-94.252289_29.803449">
+		</taxon>
+	</clade>
+	<calibration id="cal21">
+		<lower>
+		2002.6192
+		</lower>
+		<upper>
+		2002.6192
+		</upper>
+		<appliesto clade.id="clad21">
+		</appliesto>
+	</calibration>
+	<clade id="clad22">
+		<taxon value="KX547398_2002.6411_USA_NY_Madison_-75.595373_42.814697">
+		</taxon>
+	</clade>
+	<calibration id="cal22">
+		<lower>
+		2002.6411
+		</lower>
+		<upper>
+		2002.6411
+		</upper>
+		<appliesto clade.id="clad22">
+		</appliesto>
+	</calibration>
+	<clade id="clad23">
+		<taxon value="AF404753_2000_USA_MD_Baltimore_-76.559966_39.209675">
+		</taxon>
+	</clade>
+	<calibration id="cal23">
+		<lower>
+		2000.0
+		</lower>
+		<upper>
+		2000.0
+		</upper>
+		<appliesto clade.id="clad23">
+		</appliesto>
+	</calibration>
+	<clade id="clad24">
+		<taxon value="DQ164195_2002_USA_NY_Nassau_-73.430005_40.639663">
+		</taxon>
+	</clade>
+	<calibration id="cal24">
+		<lower>
+		2002.0
+		</lower>
+		<upper>
+		2002.0
+		</upper>
+		<appliesto clade.id="clad24">
+		</appliesto>
+	</calibration>
+	<clade id="clad25">
+		<taxon value="KX547245_2002.6986_USA_NY_Nassau_-73.464396_40.867565">
+		</taxon>
+	</clade>
+	<calibration id="cal25">
+		<lower>
+		2002.6986
+		</lower>
+		<upper>
+		2002.6986
+		</upper>
+		<appliesto clade.id="clad25">
+		</appliesto>
+	</calibration>
+	<clade id="clad26">
+		<taxon value="DQ164186_2002_USA_NY_Queens_-73.802069_40.625101">
+		</taxon>
+	</clade>
+	<calibration id="cal26">
+		<lower>
+		2002.0
+		</lower>
+		<upper>
+		2002.0
+		</upper>
+		<appliesto clade.id="clad26">
+		</appliesto>
+	</calibration>
+	<clade id="clad27">
+		<taxon value="KX547525_2002.6685_USA_NY_Montgomery_-74.394405_42.819322">
+		</taxon>
+	</clade>
+	<calibration id="cal27">
+		<lower>
+		2002.6685
+		</lower>
+		<upper>
+		2002.6685
+		</upper>
+		<appliesto clade.id="clad27">
+		</appliesto>
+	</calibration>
+	<clade id="clad28">
+		<taxon value="KX547246_2002.6795_USA_NY_Chemung_-76.586372_42.118128">
+		</taxon>
+	</clade>
+	<calibration id="cal28">
+		<lower>
+		2002.6795
+		</lower>
+		<upper>
+		2002.6795
+		</upper>
+		<appliesto clade.id="clad28">
+		</appliesto>
+	</calibration>
+	<clade id="clad29">
+		<taxon value="KX547207_2002.6164_USA_NY_Fulton_-74.140034_43.197458">
+		</taxon>
+	</clade>
+	<calibration id="cal29">
+		<lower>
+		2002.6164
+		</lower>
+		<upper>
+		2002.6164
+		</upper>
+		<appliesto clade.id="clad29">
+		</appliesto>
+	</calibration>
+	<clade id="clad30">
+		<taxon value="KJ501379_2001.737_USA_WI_Dane_-89.335637_43.078088">
+		</taxon>
+	</clade>
+	<calibration id="cal30">
+		<lower>
+		2001.737
+		</lower>
+		<upper>
+		2001.737
+		</upper>
+		<appliesto clade.id="clad30">
+		</appliesto>
+	</calibration>
+	<clade id="clad31">
+		<taxon value="KX547603_2002.7178_USA_NY_Saratoga_-73.776282_43.078872">
+		</taxon>
+	</clade>
+	<calibration id="cal31">
+		<lower>
+		2002.7178
+		</lower>
+		<upper>
+		2002.7178
+		</upper>
+		<appliesto clade.id="clad31">
+		</appliesto>
+	</calibration>
+	<clade id="clad32">
+		<taxon value="KX547230_2002.7178_USA_NY_Niagara_-78.70931_43.309064">
+		</taxon>
+	</clade>
+	<calibration id="cal32">
+		<lower>
+		2002.7178
+		</lower>
+		<upper>
+		2002.7178
+		</upper>
+		<appliesto clade.id="clad32">
+		</appliesto>
+	</calibration>
+	<clade id="clad33">
+		<taxon value="KX547238_2002.6356_USA_NY_SaintLawrence_-74.973136_44.977183">
+		</taxon>
+	</clade>
+	<calibration id="cal33">
+		<lower>
+		2002.6356
+		</lower>
+		<upper>
+		2002.6356
+		</upper>
+		<appliesto clade.id="clad33">
+		</appliesto>
+	</calibration>
+	<clade id="clad34">
+		<taxon value="KX547505_2002.7342_USA_NY_Warren_-74.110632_43.708082">
+		</taxon>
+	</clade>
+	<calibration id="cal34">
+		<lower>
+		2002.7342
+		</lower>
+		<upper>
+		2002.7342
+		</upper>
+		<appliesto clade.id="clad34">
+		</appliesto>
+	</calibration>
+	<clade id="clad35">
+		<taxon value="DQ164187_2002_USA_NY_Broome_-76.008926_42.101363">
+		</taxon>
+	</clade>
+	<calibration id="cal35">
+		<lower>
+		2002.0
+		</lower>
+		<upper>
+		2002.0
+		</upper>
+		<appliesto clade.id="clad35">
+		</appliesto>
+	</calibration>
+	<clade id="clad36">
+		<taxon value="KX547620_2002.6575_USA_NY_Jefferson_-76.407011_43.910136">
+		</taxon>
+	</clade>
+	<calibration id="cal36">
+		<lower>
+		2002.6575
+		</lower>
+		<upper>
+		2002.6575
+		</upper>
+		<appliesto clade.id="clad36">
+		</appliesto>
+	</calibration>
+	<clade id="clad37">
+		<taxon value="KJ501277_2001.6384_USA_PA_Philadelphia_-75.06238_40.093164">
+		</taxon>
+	</clade>
+	<calibration id="cal37">
+		<lower>
+		2001.6384
+		</lower>
+		<upper>
+		2001.6384
+		</upper>
+		<appliesto clade.id="clad37">
+		</appliesto>
+	</calibration>
+	<clade id="clad38">
+		<taxon value="KJ501283_2001.7589_USA_WI_Milwaukee_-87.882419_43.097948">
+		</taxon>
+	</clade>
+	<calibration id="cal38">
+		<lower>
+		2001.7589
+		</lower>
+		<upper>
+		2001.7589
+		</upper>
+		<appliesto clade.id="clad38">
+		</appliesto>
+	</calibration>
+	<clade id="clad39">
+		<taxon value="KJ501282_2001.737_USA_WI_Waushara_-89.389608_44.003356">
+		</taxon>
+	</clade>
+	<calibration id="cal39">
+		<lower>
+		2001.737
+		</lower>
+		<upper>
+		2001.737
+		</upper>
+		<appliesto clade.id="clad39">
+		</appliesto>
+	</calibration>
+	<clade id="clad40">
+		<taxon value="KX547444_2002.5945_USA_NY_Niagara_-78.885497_43.287845">
+		</taxon>
+	</clade>
+	<calibration id="cal40">
+		<lower>
+		2002.5945
+		</lower>
+		<upper>
+		2002.5945
+		</upper>
+		<appliesto clade.id="clad40">
+		</appliesto>
+	</calibration>
+	<clade id="clad41">
+		<taxon value="DQ080071_2002_USA_FL_Sumter_-82.012822_28.833579">
+		</taxon>
+	</clade>
+	<calibration id="cal41">
+		<lower>
+		2002.0
+		</lower>
+		<upper>
+		2002.0
+		</upper>
+		<appliesto clade.id="clad41">
+		</appliesto>
+	</calibration>
+	<clade id="clad42">
+		<taxon value="DQ176637_2002_USA_TX_Hall_-100.597289_34.461802">
+		</taxon>
+	</clade>
+	<calibration id="cal42">
+		<lower>
+		2002.0
+		</lower>
+		<upper>
+		2002.0
+		</upper>
+		<appliesto clade.id="clad42">
+		</appliesto>
+	</calibration>
+	<clade id="clad43">
+		<taxon value="KX547299_2002.6466_USA_NY_Otsego_-75.320643_42.610779">
+		</taxon>
+	</clade>
+	<calibration id="cal43">
+		<lower>
+		2002.6466
+		</lower>
+		<upper>
+		2002.6466
+		</upper>
+		<appliesto clade.id="clad43">
+		</appliesto>
+	</calibration>
+	<clade id="clad44">
+		<taxon value="KX547204_2002.6959_USA_NY_Washington_-73.567305_43.534233">
+		</taxon>
+	</clade>
+	<calibration id="cal44">
+		<lower>
+		2002.6959
+		</lower>
+		<upper>
+		2002.6959
+		</upper>
+		<appliesto clade.id="clad44">
+		</appliesto>
+	</calibration>
+	<clade id="clad45">
+		<taxon value="KX547194_2002.7205_USA_NY_NewYork_-73.951119_40.785201">
+		</taxon>
+	</clade>
+	<calibration id="cal45">
+		<lower>
+		2002.7205
+		</lower>
+		<upper>
+		2002.7205
+		</upper>
+		<appliesto clade.id="clad45">
+		</appliesto>
+	</calibration>
+	<clade id="clad46">
+		<taxon value="DQ164196_2002_USA_GA_Wilkinson_-83.018445_32.742521">
+		</taxon>
+	</clade>
+	<calibration id="cal46">
+		<lower>
+		2002.0
+		</lower>
+		<upper>
+		2002.0
+		</upper>
+		<appliesto clade.id="clad46">
+		</appliesto>
+	</calibration>
+	<clade id="clad47">
+		<taxon value="KJ501257_2002.6658_USA_ND_GrandForks_-97.419431_47.836586">
+		</taxon>
+	</clade>
+	<calibration id="cal47">
+		<lower>
+		2002.6658
+		</lower>
+		<upper>
+		2002.6658
+		</upper>
+		<appliesto clade.id="clad47">
+		</appliesto>
+	</calibration>
+	<clade id="clad48">
+		<taxon value="KJ501480_2001.6986_USA_MD_AnneArundel_-76.637317_39.053705">
+		</taxon>
+	</clade>
+	<calibration id="cal48">
+		<lower>
+		2001.6986
+		</lower>
+		<upper>
+		2001.6986
+		</upper>
+		<appliesto clade.id="clad48">
+		</appliesto>
+	</calibration>
+	<clade id="clad49">
+		<taxon value="KX547586_2002.7151_USA_NY_Dutchess_-73.82711_41.930579">
+		</taxon>
+	</clade>
+	<calibration id="cal49">
+		<lower>
+		2002.7151
+		</lower>
+		<upper>
+		2002.7151
+		</upper>
+		<appliesto clade.id="clad49">
+		</appliesto>
+	</calibration>
+	<clade id="clad50">
+		<taxon value="KX547506_2002.6356_USA_NY_Lewis_-75.32508_43.970077">
+		</taxon>
+	</clade>
+	<calibration id="cal50">
+		<lower>
+		2002.6356
+		</lower>
+		<upper>
+		2002.6356
+		</upper>
+		<appliesto clade.id="clad50">
+		</appliesto>
+	</calibration>
+	<clade id="clad51">
+		<taxon value="KX547314_2002.737_USA_NY_Broome_-75.753412_42.04873">
+		</taxon>
+	</clade>
+	<calibration id="cal51">
+		<lower>
+		2002.737
+		</lower>
+		<upper>
+		2002.737
+		</upper>
+		<appliesto clade.id="clad51">
+		</appliesto>
+	</calibration>
+	<clade id="clad52">
+		<taxon value="KX547228_2002.6904_USA_NY_Richmond_-74.15915_40.641847">
+		</taxon>
+	</clade>
+	<calibration id="cal52">
+		<lower>
+		2002.6904
+		</lower>
+		<upper>
+		2002.6904
+		</upper>
+		<appliesto clade.id="clad52">
+		</appliesto>
+	</calibration>
+	<clade id="clad53">
+		<taxon value="KJ501276_2002.6411_USA_OH_Hancock_-83.772682_41.159296">
+		</taxon>
+	</clade>
+	<calibration id="cal53">
+		<lower>
+		2002.6411
+		</lower>
+		<upper>
+		2002.6411
+		</upper>
+		<appliesto clade.id="clad53">
+		</appliesto>
+	</calibration>
+	<clade id="clad54">
+		<taxon value="KJ501512_2001.7507_USA_GA_Fulton_-84.3574_34.089419">
+		</taxon>
+	</clade>
+	<calibration id="cal54">
+		<lower>
+		2001.7507
+		</lower>
+		<upper>
+		2001.7507
+		</upper>
+		<appliesto clade.id="clad54">
+		</appliesto>
+	</calibration>
+	<clade id="clad55">
+		<taxon value="KX547469_2002.7151_USA_NY_Schenectady_-73.909142_42.878268">
+		</taxon>
+	</clade>
+	<calibration id="cal55">
+		<lower>
+		2002.7151
+		</lower>
+		<upper>
+		2002.7151
+		</upper>
+		<appliesto clade.id="clad55">
+		</appliesto>
+	</calibration>
+	<clade id="clad56">
+		<taxon value="KJ501289_2001.7507_USA_DC_DistrictofColumbia_-76.989687_38.864771">
+		</taxon>
+	</clade>
+	<calibration id="cal56">
+		<lower>
+		2001.7507
+		</lower>
+		<upper>
+		2001.7507
+		</upper>
+		<appliesto clade.id="clad56">
+		</appliesto>
+	</calibration>
+	<clade id="clad57">
+		<taxon value="KX547421_2002.6192_USA_NY_Steuben_-77.267736_42.502069">
+		</taxon>
+	</clade>
+	<calibration id="cal57">
+		<lower>
+		2002.6192
+		</lower>
+		<upper>
+		2002.6192
+		</upper>
+		<appliesto clade.id="clad57">
+		</appliesto>
+	</calibration>
+	<clade id="clad58">
+		<taxon value="KJ501361_2001.7589_USA_OH_Knox_-82.373327_40.401127">
+		</taxon>
+	</clade>
+	<calibration id="cal58">
+		<lower>
+		2001.7589
+		</lower>
+		<upper>
+		2001.7589
+		</upper>
+		<appliesto clade.id="clad58">
+		</appliesto>
+	</calibration>
+	<clade id="clad59">
+		<taxon value="KX547189_2002.6027_USA_NY_Broome_-75.657773_42.13645">
+		</taxon>
+	</clade>
+	<calibration id="cal59">
+		<lower>
+		2002.6027
+		</lower>
+		<upper>
+		2002.6027
+		</upper>
+		<appliesto clade.id="clad59">
+		</appliesto>
+	</calibration>
+	<clade id="clad60">
+		<taxon value="KX547213_2002.6986_USA_NY_Ulster_-74.317597_42.001336">
+		</taxon>
+	</clade>
+	<calibration id="cal60">
+		<lower>
+		2002.6986
+		</lower>
+		<upper>
+		2002.6986
+		</upper>
+		<appliesto clade.id="clad60">
+		</appliesto>
+	</calibration>
+	<clade id="clad61">
+		<taxon value="KX547374_2002.6411_USA_NY_Orange_-74.432388_41.537988">
+		</taxon>
+	</clade>
+	<calibration id="cal61">
+		<lower>
+		2002.6411
+		</lower>
+		<upper>
+		2002.6411
+		</upper>
+		<appliesto clade.id="clad61">
+		</appliesto>
+	</calibration>
+	<clade id="clad62">
+		<taxon value="KJ501462_2002.6959_USA_UT_Weber_-112.048209_41.212219">
+		</taxon>
+	</clade>
+	<calibration id="cal62">
+		<lower>
+		2002.6959
+		</lower>
+		<upper>
+		2002.6959
+		</upper>
+		<appliesto clade.id="clad62">
+		</appliesto>
+	</calibration>
+	<clade id="clad63">
+		<taxon value="KX547429_2002.6192_USA_NY_Westchester_-73.683781_40.9468">
+		</taxon>
+	</clade>
+	<calibration id="cal63">
+		<lower>
+		2002.6192
+		</lower>
+		<upper>
+		2002.6192
+		</upper>
+		<appliesto clade.id="clad63">
+		</appliesto>
+	</calibration>
+	<clade id="clad64">
+		<taxon value="KJ501479_2002.674_USA_KY_Boone_-84.780293_39.106439">
+		</taxon>
+	</clade>
+	<calibration id="cal64">
+		<lower>
+		2002.674
+		</lower>
+		<upper>
+		2002.674
+		</upper>
+		<appliesto clade.id="clad64">
+		</appliesto>
+	</calibration>
+	<clade id="clad65">
+		<taxon value="KX547251_2002.5452_USA_NY_Rockland_-73.960719_41.025802">
+		</taxon>
+	</clade>
+	<calibration id="cal65">
+		<lower>
+		2002.5452
+		</lower>
+		<upper>
+		2002.5452
+		</upper>
+		<appliesto clade.id="clad65">
+		</appliesto>
+	</calibration>
+	<clade id="clad66">
+		<taxon value="KX547459_2002.7342_USA_NY_Wyoming_-78.067929_42.567858">
+		</taxon>
+	</clade>
+	<calibration id="cal66">
+		<lower>
+		2002.7342
+		</lower>
+		<upper>
+		2002.7342
+		</upper>
+		<appliesto clade.id="clad66">
+		</appliesto>
+	</calibration>
+	<clade id="clad67">
+		<taxon value="KJ501397_2002.6411_USA_AL_Madison_-86.72648_34.917623">
+		</taxon>
+	</clade>
+	<calibration id="cal67">
+		<lower>
+		2002.6411
+		</lower>
+		<upper>
+		2002.6411
+		</upper>
+		<appliesto clade.id="clad67">
+		</appliesto>
+	</calibration>
+	<clade id="clad68">
+		<taxon value="KX547252_2002.6986_USA_NY_Onondaga_-76.151415_42.986503">
+		</taxon>
+	</clade>
+	<calibration id="cal68">
+		<lower>
+		2002.6986
+		</lower>
+		<upper>
+		2002.6986
+		</upper>
+		<appliesto clade.id="clad68">
+		</appliesto>
+	</calibration>
+	<clade id="clad69">
+		<taxon value="DQ164198_2002_USA_TX_Concho_-99.681413_31.402388">
+		</taxon>
+	</clade>
+	<calibration id="cal69">
+		<lower>
+		2002.0
+		</lower>
+		<upper>
+		2002.0
+		</upper>
+		<appliesto clade.id="clad69">
+		</appliesto>
+	</calibration>
+	<clade id="clad70">
+		<taxon value="KX547448_2002.6575_USA_NY_Cayuga_-76.575693_43.051156">
+		</taxon>
+	</clade>
+	<calibration id="cal70">
+		<lower>
+		2002.6575
+		</lower>
+		<upper>
+		2002.6575
+		</upper>
+		<appliesto clade.id="clad70">
+		</appliesto>
+	</calibration>
+	<clade id="clad71">
+		<taxon value="KX547554_2002.6959_USA_NY_Bronx_-73.896075_40.90517">
+		</taxon>
+	</clade>
+	<calibration id="cal71">
+		<lower>
+		2002.6959
+		</lower>
+		<upper>
+		2002.6959
+		</upper>
+		<appliesto clade.id="clad71">
+		</appliesto>
+	</calibration>
+	<clade id="clad72">
+		<taxon value="DQ080072_2001_USA_FL_PalmBeach_-80.104774_26.95881">
+		</taxon>
+	</clade>
+	<calibration id="cal72">
+		<lower>
+		2001.0
+		</lower>
+		<upper>
+		2001.0
+		</upper>
+		<appliesto clade.id="clad72">
+		</appliesto>
+	</calibration>
+	<clade id="clad73">
+		<taxon value="KX547393_2002.5945_USA_NY_Suffolk_-72.490254_40.845718">
+		</taxon>
+	</clade>
+	<calibration id="cal73">
+		<lower>
+		2002.5945
+		</lower>
+		<upper>
+		2002.5945
+		</upper>
+		<appliesto clade.id="clad73">
+		</appliesto>
+	</calibration>
+	<clade id="clad74">
+		<taxon value="KX547509_2002.6137_USA_NY_Westchester_-73.768378_40.884952">
+		</taxon>
+	</clade>
+	<calibration id="cal74">
+		<lower>
+		2002.6137
+		</lower>
+		<upper>
+		2002.6137
+		</upper>
+		<appliesto clade.id="clad74">
+		</appliesto>
+	</calibration>
+	<clade id="clad75">
+		<taxon value="KX547261_2002.674_USA_NY_Queens_-73.806226_40.714337">
+		</taxon>
+	</clade>
+	<calibration id="cal75">
+		<lower>
+		2002.674
+		</lower>
+		<upper>
+		2002.674
+		</upper>
+		<appliesto clade.id="clad75">
+		</appliesto>
+	</calibration>
+	<clade id="clad76">
+		<taxon value="KX547484_2002.7479_USA_NY_Genesee_-77.946859_42.972063">
+		</taxon>
+	</clade>
+	<calibration id="cal76">
+		<lower>
+		2002.7479
+		</lower>
+		<upper>
+		2002.7479
+		</upper>
+		<appliesto clade.id="clad76">
+		</appliesto>
+	</calibration>
+	<clade id="clad77">
+		<taxon value="KX547503_2002.6164_USA_NY_Erie_-78.731922_42.828322">
+		</taxon>
+	</clade>
+	<calibration id="cal77">
+		<lower>
+		2002.6164
+		</lower>
+		<upper>
+		2002.6164
+		</upper>
+		<appliesto clade.id="clad77">
+		</appliesto>
+	</calibration>
+	<clade id="clad78">
+		<taxon value="KX547490_2002.6795_USA_NY_Chemung_-76.947426_42.139587">
+		</taxon>
+	</clade>
+	<calibration id="cal78">
+		<lower>
+		2002.6795
+		</lower>
+		<upper>
+		2002.6795
+		</upper>
+		<appliesto clade.id="clad78">
+		</appliesto>
+	</calibration>
+	<clade id="clad79">
+		<taxon value="KJ501453_2001.7589_USA_WI_Racine_-87.84365_42.763306">
+		</taxon>
+	</clade>
+	<calibration id="cal79">
+		<lower>
+		2001.7589
+		</lower>
+		<upper>
+		2001.7589
+		</upper>
+		<appliesto clade.id="clad79">
+		</appliesto>
+	</calibration>
+	<clade id="clad80">
+		<taxon value="KJ501363_2001.7014_USA_OH_Franklin_-83.133264_40.021314">
+		</taxon>
+	</clade>
+	<calibration id="cal80">
+		<lower>
+		2001.7014
+		</lower>
+		<upper>
+		2001.7014
+		</upper>
+		<appliesto clade.id="clad80">
+		</appliesto>
+	</calibration>
+	<clade id="clad81">
+		<taxon value="KX547331_2002.7342_USA_NY_Oswego_-76.434699_43.385994">
+		</taxon>
+	</clade>
+	<calibration id="cal81">
+		<lower>
+		2002.7342
+		</lower>
+		<upper>
+		2002.7342
+		</upper>
+		<appliesto clade.id="clad81">
+		</appliesto>
+	</calibration>
+	<clade id="clad82">
+		<taxon value="KX547364_2002.6986_USA_NY_Rockland_-73.938713_41.079536">
+		</taxon>
+	</clade>
+	<calibration id="cal82">
+		<lower>
+		2002.6986
+		</lower>
+		<upper>
+		2002.6986
+		</upper>
+		<appliesto clade.id="clad82">
+		</appliesto>
+	</calibration>
+	<clade id="clad83">
+		<taxon value="KX547182_2002.6932_USA_NY_Orange_-74.4697_41.393632">
+		</taxon>
+	</clade>
+	<calibration id="cal83">
+		<lower>
+		2002.6932
+		</lower>
+		<upper>
+		2002.6932
+		</upper>
+		<appliesto clade.id="clad83">
+		</appliesto>
+	</calibration>
+	<clade id="clad84">
+		<taxon value="KJ501234_2001.7342_USA_AR_Saline_-92.54645_34.560047">
+		</taxon>
+	</clade>
+	<calibration id="cal84">
+		<lower>
+		2001.7342
+		</lower>
+		<upper>
+		2001.7342
+		</upper>
+		<appliesto clade.id="clad84">
+		</appliesto>
+	</calibration>
+	<clade id="clad85">
+		<taxon value="KJ501468_2001.737_USA_MS_Adams_-91.303208_31.578763">
+		</taxon>
+	</clade>
+	<calibration id="cal85">
+		<lower>
+		2001.737
+		</lower>
+		<upper>
+		2001.737
+		</upper>
+		<appliesto clade.id="clad85">
+		</appliesto>
+	</calibration>
+	<clade id="clad86">
+		<taxon value="KX547383_2002.7562_USA_NY_Rockland_-74.085382_41.146763">
+		</taxon>
+	</clade>
+	<calibration id="cal86">
+		<lower>
+		2002.7562
+		</lower>
+		<upper>
+		2002.7562
+		</upper>
+		<appliesto clade.id="clad86">
+		</appliesto>
+	</calibration>
+	<clade id="clad87">
+		<taxon value="KJ501507_2001.6603_USA_SD_Bennett_-101.312341_43.006867">
+		</taxon>
+	</clade>
+	<calibration id="cal87">
+		<lower>
+		2001.6603
+		</lower>
+		<upper>
+		2001.6603
+		</upper>
+		<appliesto clade.id="clad87">
+		</appliesto>
+	</calibration>
+	<clade id="clad88">
+		<taxon value="DQ164193_2002_USA_NY_Clinton_-73.957786_44.888846">
+		</taxon>
+	</clade>
+	<calibration id="cal88">
+		<lower>
+		2002.0
+		</lower>
+		<upper>
+		2002.0
+		</upper>
+		<appliesto clade.id="clad88">
+		</appliesto>
+	</calibration>
+	<clade id="clad89">
+		<taxon value="KX547247_2002.6164_USA_NY_Erie_-78.943916_43.004693">
+		</taxon>
+	</clade>
+	<calibration id="cal89">
+		<lower>
+		2002.6164
+		</lower>
+		<upper>
+		2002.6164
+		</upper>
+		<appliesto clade.id="clad89">
+		</appliesto>
+	</calibration>
+	<clade id="clad90">
+		<taxon value="KJ501268_2001.8301_USA_NJ_Ocean_-74.133951_39.769405">
+		</taxon>
+	</clade>
+	<calibration id="cal90">
+		<lower>
+		2001.8301
+		</lower>
+		<upper>
+		2001.8301
+		</upper>
+		<appliesto clade.id="clad90">
+		</appliesto>
+	</calibration>
+	<clade id="clad91">
+		<taxon value="HM488137_2002.6329_USA_CT_Fairfield_-73.3661_41.086395">
+		</taxon>
+	</clade>
+	<calibration id="cal91">
+		<lower>
+		2002.6329
+		</lower>
+		<upper>
+		2002.6329
+		</upper>
+		<appliesto clade.id="clad91">
+		</appliesto>
+	</calibration>
+	<clade id="clad92">
+		<taxon value="KX547527_2002.7534_USA_NY_Schenectady_-74.214146_42.7462">
+		</taxon>
+	</clade>
+	<calibration id="cal92">
+		<lower>
+		2002.7534
+		</lower>
+		<upper>
+		2002.7534
+		</upper>
+		<appliesto clade.id="clad92">
+		</appliesto>
+	</calibration>
+	<clade id="clad93">
+		<taxon value="KX547402_2002.7123_USA_NY_Onondaga_-76.104503_42.855638">
+		</taxon>
+	</clade>
+	<calibration id="cal93">
+		<lower>
+		2002.7123
+		</lower>
+		<upper>
+		2002.7123
+		</upper>
+		<appliesto clade.id="clad93">
+		</appliesto>
+	</calibration>
+	<clade id="clad94">
+		<taxon value="KJ501233_2001.7151_USA_AR_Union_-92.266432_33.030837">
+		</taxon>
+	</clade>
+	<calibration id="cal94">
+		<lower>
+		2001.7151
+		</lower>
+		<upper>
+		2001.7151
+		</upper>
+		<appliesto clade.id="clad94">
+		</appliesto>
+	</calibration>
+	<clade id="clad95">
+		<taxon value="KJ501467_2002.737_USA_MI_Wayne_-83.172902_42.078683">
+		</taxon>
+	</clade>
+	<calibration id="cal95">
+		<lower>
+		2002.737
+		</lower>
+		<upper>
+		2002.737
+		</upper>
+		<appliesto clade.id="clad95">
+		</appliesto>
+	</calibration>
+	<clade id="clad96">
+		<taxon value="KJ501454_2001.7589_USA_WI_Dane_-89.200214_43.088173">
+		</taxon>
+	</clade>
+	<calibration id="cal96">
+		<lower>
+		2001.7589
+		</lower>
+		<upper>
+		2001.7589
+		</upper>
+		<appliesto clade.id="clad96">
+		</appliesto>
+	</calibration>
+	<clade id="clad97">
+		<taxon value="KJ501474_2002.737_USA_IA_Kossuth_-94.439778_43.295122">
+		</taxon>
+	</clade>
+	<calibration id="cal97">
+		<lower>
+		2002.737
+		</lower>
+		<upper>
+		2002.737
+		</upper>
+		<appliesto clade.id="clad97">
+		</appliesto>
+	</calibration>
+	<clade id="clad98">
+		<taxon value="KJ501466_2002.7178_USA_MI_Lapeer_-83.254977_42.936918">
+		</taxon>
+	</clade>
+	<calibration id="cal98">
+		<lower>
+		2002.7178
+		</lower>
+		<upper>
+		2002.7178
+		</upper>
+		<appliesto clade.id="clad98">
+		</appliesto>
+	</calibration>
+	<clade id="clad99">
+		<taxon value="KJ501235_2001.7342_USA_AR_Sebastian_-94.308543_34.95872">
+		</taxon>
+	</clade>
+	<calibration id="cal99">
+		<lower>
+		2001.7342
+		</lower>
+		<upper>
+		2001.7342
+		</upper>
+		<appliesto clade.id="clad99">
+		</appliesto>
+	</calibration>
+	<clade id="clad100">
+		<taxon value="KX547272_2001.5973_USA_NY_Suffolk_-73.221037_40.901631">
+		</taxon>
+	</clade>
+	<calibration id="cal100">
+		<lower>
+		2001.5973
+		</lower>
+		<upper>
+		2001.5973
+		</upper>
+		<appliesto clade.id="clad100">
+		</appliesto>
+	</calibration>
+	<clade id="clad101">
+		<taxon value="DQ164202_2002_USA_OH_Licking_-82.477655_40.053836">
+		</taxon>
+	</clade>
+	<calibration id="cal101">
+		<lower>
+		2002.0
+		</lower>
+		<upper>
+		2002.0
+		</upper>
+		<appliesto clade.id="clad101">
+		</appliesto>
+	</calibration>
+	<clade id="clad102">
+		<taxon value="AF404756_2000_USA_NY_Rockland_-74.05963_41.260923">
+		</taxon>
+	</clade>
+	<calibration id="cal102">
+		<lower>
+		2000.0
+		</lower>
+		<upper>
+		2000.0
+		</upper>
+		<appliesto clade.id="clad102">
+		</appliesto>
+	</calibration>
+	<clade id="clad103">
+		<taxon value="KJ501496_2001.7726_USA_IL_Cook_-87.717451_41.788353">
+		</taxon>
+	</clade>
+	<calibration id="cal103">
+		<lower>
+		2001.7726
+		</lower>
+		<upper>
+		2001.7726
+		</upper>
+		<appliesto clade.id="clad103">
+		</appliesto>
+	</calibration>
+	<clade id="clad104">
+		<taxon value="KX547266_2002.6027_USA_NY_Nassau_-73.578573_40.605264">
+		</taxon>
+	</clade>
+	<calibration id="cal104">
+		<lower>
+		2002.6027
+		</lower>
+		<upper>
+		2002.6027
+		</upper>
+		<appliesto clade.id="clad104">
+		</appliesto>
+	</calibration>
+	<clade id="clad105">
+		<taxon value="KJ501395_2001.7562_USA_VA_Arlington_-77.158942_38.890809">
+		</taxon>
+	</clade>
+	<calibration id="cal105">
+		<lower>
+		2001.7562
+		</lower>
+		<upper>
+		2001.7562
+		</upper>
+		<appliesto clade.id="clad105">
+		</appliesto>
+	</calibration>
+	<clade id="clad106">
+		<taxon value="KJ501378_2001.7178_USA_PA_Bucks_-75.277_40.44465">
+		</taxon>
+	</clade>
+	<calibration id="cal106">
+		<lower>
+		2001.7178
+		</lower>
+		<upper>
+		2001.7178
+		</upper>
+		<appliesto clade.id="clad106">
+		</appliesto>
+	</calibration>
+	<clade id="clad107">
+		<taxon value="HM488208_2002.6301_USA_CT_Fairfield_-73.390586_41.071147">
+		</taxon>
+	</clade>
+	<calibration id="cal107">
+		<lower>
+		2002.6301
+		</lower>
+		<upper>
+		2002.6301
+		</upper>
+		<appliesto clade.id="clad107">
+		</appliesto>
+	</calibration>
+	<clade id="clad108">
+		<taxon value="KJ501374_2001.8466_USA_NJ_Union_-74.210328_40.595849">
+		</taxon>
+	</clade>
+	<calibration id="cal108">
+		<lower>
+		2001.8466
+		</lower>
+		<upper>
+		2001.8466
+		</upper>
+		<appliesto clade.id="clad108">
+		</appliesto>
+	</calibration>
+	<clade id="clad109">
+		<taxon value="DQ164200_2002_USA_IN_Hendricks_-86.546572_39.907114">
+		</taxon>
+	</clade>
+	<calibration id="cal109">
+		<lower>
+		2002.0
+		</lower>
+		<upper>
+		2002.0
+		</upper>
+		<appliesto clade.id="clad109">
+		</appliesto>
+	</calibration>
+	<clade id="clad110">
+		<taxon value="HM488136_2001.6822_USA_CT_Fairfield_-73.381637_41.090785">
+		</taxon>
+	</clade>
+	<calibration id="cal110">
+		<lower>
+		2001.6822
+		</lower>
+		<upper>
+		2001.6822
+		</upper>
+		<appliesto clade.id="clad110">
+		</appliesto>
+	</calibration>
+	<clade id="clad111">
+		<taxon value="AY646354_2002_USA_NY_Madison_-75.639468_43.043122">
+		</taxon>
+	</clade>
+	<calibration id="cal111">
+		<lower>
+		2002.0
+		</lower>
+		<upper>
+		2002.0
+		</upper>
+		<appliesto clade.id="clad111">
+		</appliesto>
+	</calibration>
+	<clade id="clad112">
+		<taxon value="KJ501443_2001.7973_USA_IL_Will_-88.238982_41.569751">
+		</taxon>
+	</clade>
+	<calibration id="cal112">
+		<lower>
+		2001.7973
+		</lower>
+		<upper>
+		2001.7973
+		</upper>
+		<appliesto clade.id="clad112">
+		</appliesto>
+	</calibration>
+	<clade id="clad113">
+		<taxon value="KJ501269_2001.8137_USA_NJ_Middlesex_-74.493313_40.555304">
+		</taxon>
+	</clade>
+	<calibration id="cal113">
+		<lower>
+		2001.8137
+		</lower>
+		<upper>
+		2001.8137
+		</upper>
+		<appliesto clade.id="clad113">
+		</appliesto>
+	</calibration>
+	<clade id="clad114">
+		<taxon value="KJ501515_2001.8301_USA_NJ_Middlesex_-74.45554_40.569605">
+		</taxon>
+	</clade>
+	<calibration id="cal114">
+		<lower>
+		2001.8301
+		</lower>
+		<upper>
+		2001.8301
+		</upper>
+		<appliesto clade.id="clad114">
+		</appliesto>
+	</calibration>
+	<clade id="clad115">
+		<taxon value="KJ501274_2001.7178_USA_OH_Cuyahoga_-81.654668_41.299039">
+		</taxon>
+	</clade>
+	<calibration id="cal115">
+		<lower>
+		2001.7178
+		</lower>
+		<upper>
+		2001.7178
+		</upper>
+		<appliesto clade.id="clad115">
+		</appliesto>
+	</calibration>
+	<clade id="clad116">
+		<taxon value="AF533540_2001.7041_USA_NY_Nassau_-73.452677_40.617391">
+		</taxon>
+	</clade>
+	<calibration id="cal116">
+		<lower>
+		2001.7041
+		</lower>
+		<upper>
+		2001.7041
+		</upper>
+		<appliesto clade.id="clad116">
+		</appliesto>
+	</calibration>
+	<clade id="clad117">
+		<taxon value="KX547320_2002.7096_USA_NY_Suffolk_-73.352017_40.640664">
+		</taxon>
+	</clade>
+	<calibration id="cal117">
+		<lower>
+		2002.7096
+		</lower>
+		<upper>
+		2002.7096
+		</upper>
+		<appliesto clade.id="clad117">
+		</appliesto>
+	</calibration>
+	<clade id="clad118">
+		<taxon value="KJ501264_2001.6986_USA_GA_Fulton_-84.27267_34.171485">
+		</taxon>
+	</clade>
+	<calibration id="cal118">
+		<lower>
+		2001.6986
+		</lower>
+		<upper>
+		2001.6986
+		</upper>
+		<appliesto clade.id="clad118">
+		</appliesto>
+	</calibration>
+	<clade id="clad119">
+		<taxon value="HM488132_2000.7186_USA_CT_Fairfield_-73.657938_40.982695">
+		</taxon>
+	</clade>
+	<calibration id="cal119">
+		<lower>
+		2000.7186
+		</lower>
+		<upper>
+		2000.7186
+		</upper>
+		<appliesto clade.id="clad119">
+		</appliesto>
+	</calibration>
+	<clade id="clad120">
+		<taxon value="KJ501465_2001.6438_USA_MI_Oakland_-83.424862_42.6377">
+		</taxon>
+	</clade>
+	<calibration id="cal120">
+		<lower>
+		2001.6438
+		</lower>
+		<upper>
+		2001.6438
+		</upper>
+		<appliesto clade.id="clad120">
+		</appliesto>
+	</calibration>
+	<clade id="clad121">
+		<taxon value="KJ501286_2002.737_USA_WI_Milwaukee_-88.033356_42.849098">
+		</taxon>
+	</clade>
+	<calibration id="cal121">
+		<lower>
+		2002.737
+		</lower>
+		<upper>
+		2002.737
+		</upper>
+		<appliesto clade.id="clad121">
+		</appliesto>
+	</calibration>
+	<clade id="clad122">
+		<taxon value="KX547492_2002.7342_USA_NY_Westchester_-73.684239_40.945606">
+		</taxon>
+	</clade>
+	<calibration id="cal122">
+		<lower>
+		2002.7342
+		</lower>
+		<upper>
+		2002.7342
+		</upper>
+		<appliesto clade.id="clad122">
+		</appliesto>
+	</calibration>
+	<clade id="clad123">
+		<taxon value="FJ151394_1999_USA_NY_NewYork_-73.939366_40.791554">
+		</taxon>
+	</clade>
+	<calibration id="cal123">
+		<lower>
+		1999.0
+		</lower>
+		<upper>
+		1999.0
+		</upper>
+		<appliesto clade.id="clad123">
+		</appliesto>
+	</calibration>
+	<clade id="clad124">
+		<taxon value="AY795965_2002_USA_MI_Isabella_-84.987874_43.691302">
+		</taxon>
+	</clade>
+	<calibration id="cal124">
+		<lower>
+		2002.0
+		</lower>
+		<upper>
+		2002.0
+		</upper>
+		<appliesto clade.id="clad124">
+		</appliesto>
+	</calibration>
+	<clade id="clad125">
+		<taxon value="KJ501336_2001.6822_USA_AL_Calhoun_-85.716195_33.843743">
+		</taxon>
+	</clade>
+	<calibration id="cal125">
+		<lower>
+		2001.6822
+		</lower>
+		<upper>
+		2001.6822
+		</upper>
+		<appliesto clade.id="clad125">
+		</appliesto>
+	</calibration>
+	<clade id="clad126">
+		<taxon value="KJ501509_2001.8548_USA_WI_Milwaukee_-88.016651_43.056547">
+		</taxon>
+	</clade>
+	<calibration id="cal126">
+		<lower>
+		2001.8548
+		</lower>
+		<upper>
+		2001.8548
+		</upper>
+		<appliesto clade.id="clad126">
+		</appliesto>
+	</calibration>
+	<clade id="clad127">
+		<taxon value="KJ501473_2001.737_USA_IL_Dupage_-88.069963_41.988845">
+		</taxon>
+	</clade>
+	<calibration id="cal127">
+		<lower>
+		2001.737
+		</lower>
+		<upper>
+		2001.737
+		</upper>
+		<appliesto clade.id="clad127">
+		</appliesto>
+	</calibration>
+	<clade id="clad128">
+		<taxon value="KX547602_2000.6667_USA_NY_Westchester_-73.705014_40.942209">
+		</taxon>
+	</clade>
+	<calibration id="cal128">
+		<lower>
+		2000.6667
+		</lower>
+		<upper>
+		2000.6667
+		</upper>
+		<appliesto clade.id="clad128">
+		</appliesto>
+	</calibration>
+	<clade id="clad129">
+		<taxon value="KJ501455_2001.7014_USA_AL_Montgomery_-86.406652_32.125278">
+		</taxon>
+	</clade>
+	<calibration id="cal129">
+		<lower>
+		2001.7014
+		</lower>
+		<upper>
+		2001.7014
+		</upper>
+		<appliesto clade.id="clad129">
+		</appliesto>
+	</calibration>
+	<clade id="clad130">
+		<taxon value="KX547519_2000.6667_USA_NY_Westchester_-73.701869_40.944266">
+		</taxon>
+	</clade>
+	<calibration id="cal130">
+		<lower>
+		2000.6667
+		</lower>
+		<upper>
+		2000.6667
+		</upper>
+		<appliesto clade.id="clad130">
+		</appliesto>
+	</calibration>
+	<clade id="clad131">
+		<taxon value="HM488130_2000.7131_USA_CT_NewHaven_-72.748047_41.252046">
+		</taxon>
+	</clade>
+	<calibration id="cal131">
+		<lower>
+		2000.7131
+		</lower>
+		<upper>
+		2000.7131
+		</upper>
+		<appliesto clade.id="clad131">
+		</appliesto>
+	</calibration>
+	<clade id="clad132">
+		<taxon value="KJ501307_2002_USA_MN_Marshall_-95.967272_48.425261">
+		</taxon>
+	</clade>
+	<calibration id="cal132">
+		<lower>
+		2002.0
+		</lower>
+		<upper>
+		2002.0
+		</upper>
+		<appliesto clade.id="clad132">
+		</appliesto>
+	</calibration>
+	<clade id="clad133">
+		<taxon value="KX547386_2000.5519_USA_NY_Rockland_-73.991752_41.099811">
+		</taxon>
+	</clade>
+	<calibration id="cal133">
+		<lower>
+		2000.5519
+		</lower>
+		<upper>
+		2000.5519
+		</upper>
+		<appliesto clade.id="clad133">
+		</appliesto>
+	</calibration>
+	<clade id="clad134">
+		<taxon value="KJ501493_2001.7507_USA_DC_DistrictofColumbia_-77.06884_38.95728">
+		</taxon>
+	</clade>
+	<calibration id="cal134">
+		<lower>
+		2001.7507
+		</lower>
+		<upper>
+		2001.7507
+		</upper>
+		<appliesto clade.id="clad134">
+		</appliesto>
+	</calibration>
+	<clade id="clad135">
+		<taxon value="KJ501249_2001.7534_USA_MO_SaintLouis_-90.50268_38.739714">
+		</taxon>
+	</clade>
+	<calibration id="cal135">
+		<lower>
+		2001.7534
+		</lower>
+		<upper>
+		2001.7534
+		</upper>
+		<appliesto clade.id="clad135">
+		</appliesto>
+	</calibration>
+	<clade id="clad136">
+		<taxon value="HM488131_2000.7213_USA_CT_NewHaven_-72.653052_41.213122">
+		</taxon>
+	</clade>
+	<calibration id="cal136">
+		<lower>
+		2000.7213
+		</lower>
+		<upper>
+		2000.7213
+		</upper>
+		<appliesto clade.id="clad136">
+		</appliesto>
+	</calibration>
+	<clade id="clad137">
+		<taxon value="KX547538_2001.6192_USA_NY_Nassau_-73.533163_40.616735">
+		</taxon>
+	</clade>
+	<calibration id="cal137">
+		<lower>
+		2001.6192
+		</lower>
+		<upper>
+		2001.6192
+		</upper>
+		<appliesto clade.id="clad137">
+		</appliesto>
+	</calibration>
+	<clade id="clad138">
+		<taxon value="KX547210_2001.6247_USA_NY_Nassau_-73.458287_40.616522">
+		</taxon>
+	</clade>
+	<calibration id="cal138">
+		<lower>
+		2001.6247
+		</lower>
+		<upper>
+		2001.6247
+		</upper>
+		<appliesto clade.id="clad138">
+		</appliesto>
+	</calibration>
+	<clade id="clad139">
+		<taxon value="HM488129_2000.7213_USA_CT_NewHaven_-72.756853_41.254273">
+		</taxon>
+	</clade>
+	<calibration id="cal139">
+		<lower>
+		2000.7213
+		</lower>
+		<upper>
+		2000.7213
+		</upper>
+		<appliesto clade.id="clad139">
+		</appliesto>
+	</calibration>
+	<clade id="clad140">
+		<taxon value="HM488135_2001.6795_USA_CT_Fairfield_-73.482443_41.60001">
+		</taxon>
+	</clade>
+	<calibration id="cal140">
+		<lower>
+		2001.6795
+		</lower>
+		<upper>
+		2001.6795
+		</upper>
+		<appliesto clade.id="clad140">
+		</appliesto>
+	</calibration>
+	<clade id="clad141">
+		<taxon value="AF202541_1999.6548_USA_NY_Madison_-75.354501_42.860541">
+		</taxon>
+	</clade>
+	<calibration id="cal141">
+		<lower>
+		1999.6548
+		</lower>
+		<upper>
+		1999.6548
+		</upper>
+		<appliesto clade.id="clad141">
+		</appliesto>
+	</calibration>
+	<clade id="clad142">
+		<taxon value="AF404755_2000_USA_NY_Oswego_-76.231987_43.410245">
+		</taxon>
+	</clade>
+	<calibration id="cal142">
+		<lower>
+		2000.0
+		</lower>
+		<upper>
+		2000.0
+		</upper>
+		<appliesto clade.id="clad142">
+		</appliesto>
+	</calibration>
+	<clade id="clad143">
+		<taxon value="KX547478_2001.6849_USA_NY_Rockland_-74.180605_41.151606">
+		</taxon>
+	</clade>
+	<calibration id="cal143">
+		<lower>
+		2001.6849
+		</lower>
+		<upper>
+		2001.6849
+		</upper>
+		<appliesto clade.id="clad143">
+		</appliesto>
+	</calibration>
+	<clade id="clad144">
+		<taxon value="HM488128_1999.737_USA_CT_Fairfield_-73.611878_40.989086">
+		</taxon>
+	</clade>
+	<calibration id="cal144">
+		<lower>
+		1999.737
+		</lower>
+		<upper>
+		1999.737
+		</upper>
+		<appliesto clade.id="clad144">
+		</appliesto>
+	</calibration>
+	<clade id="clad145">
+		<taxon value="KJ501275_2001.7014_USA_OH_Cuyahoga_-81.560107_41.530238">
+		</taxon>
+	</clade>
+	<calibration id="cal145">
+		<lower>
+		2001.7014
+		</lower>
+		<upper>
+		2001.7014
+		</upper>
+		<appliesto clade.id="clad145">
+		</appliesto>
+	</calibration>
+	<clade id="clad146">
+		<taxon value="KX547316_2001.6986_USA_NY_Westchester_-73.704751_40.941756">
+		</taxon>
+	</clade>
+	<calibration id="cal146">
+		<lower>
+		2001.6986
+		</lower>
+		<upper>
+		2001.6986
+		</upper>
+		<appliesto clade.id="clad146">
+		</appliesto>
+	</calibration>
+	<clade id="clad147">
+		<taxon value="KX547353_2000.5246_USA_NY_Suffolk_-73.029237_40.958582">
+		</taxon>
+	</clade>
+	<calibration id="cal147">
+		<lower>
+		2000.5246
+		</lower>
+		<upper>
+		2000.5246
+		</upper>
+		<appliesto clade.id="clad147">
+		</appliesto>
+	</calibration>
+	<clade id="clad148">
+		<taxon value="HM488125_1999.7425_USA_CT_Fairfield_-73.644939_40.996449">
+		</taxon>
+	</clade>
+	<calibration id="cal148">
+		<lower>
+		1999.7425
+		</lower>
+		<upper>
+		1999.7425
+		</upper>
+		<appliesto clade.id="clad148">
+		</appliesto>
+	</calibration>
+	<clade id="clad149">
+		<taxon value="AF206518_1999.7014_USA_CT_Fairfield_-73.448574_41.059706">
+		</taxon>
+	</clade>
+	<calibration id="cal149">
+		<lower>
+		1999.7014
+		</lower>
+		<upper>
+		1999.7014
+		</upper>
+		<appliesto clade.id="clad149">
+		</appliesto>
+	</calibration>
+	<clade id="clad150">
+		<taxon value="AF404754_2000_USA_NJ_Bergen_-73.937065_40.92864">
+		</taxon>
+	</clade>
+	<calibration id="cal150">
+		<lower>
+		2000.0
+		</lower>
+		<upper>
+		2000.0
+		</upper>
+		<appliesto clade.id="clad150">
+		</appliesto>
+	</calibration>
+</phyrex>
