@@ -117,7 +117,7 @@ psens <- ggplot(all_scores, aes(x = year, y = value, colour = method)) +
   geom_line(aes(group = interaction(method))) +
   facet_wrap(vars(name)) +
   theme_bw() +
-  xlab("") +
+  ylab("") +
   scale_colour_manual(breaks = c("ibm", "rrw"), values = c(ibm.col, rrw.col), name = element_blank()) +
   theme(text = element_text(size = 10),
         # title = element_text(size = 7),
@@ -139,13 +139,31 @@ ggsave(filename = file.path(here_dir, "sensitivity_specificity.pdf"),
        height = twocolumnwidth / 4,
        unit = "in")
 
+mean(subset(all_scores, method == "rrw" & name == "Sensitivity")$value)
+mean(subset(all_scores, method == "ibm" & name == "Sensitivity")$value)
+
+mean(subset(all_scores, method == "rrw" & name == "Specificity")$value)
+mean(subset(all_scores, method == "ibm" & name == "Specificity")$value)
+
+mean(subset(all_scores, method == "rrw" & name == "Sensitivity" & year %in% c(2000:2003))$value)
+mean(subset(all_scores, method == "ibm" & name == "Sensitivity" & year %in% c(2000:2003))$value)
+
+mean(subset(all_scores, method == "rrw" & name == "Specificity" & year %in% c(2000:2003))$value)
+mean(subset(all_scores, method == "ibm" & name == "Specificity" & year %in% c(2000:2003))$value)
+
+mean(subset(all_scores, method == "rrw" & name == "Sensitivity" & year %in% c(2004:2007))$value)
+mean(subset(all_scores, method == "ibm" & name == "Sensitivity" & year %in% c(2004:2007))$value)
+
+mean(subset(all_scores, method == "rrw" & name == "Specificity" & year %in% c(2004:2007))$value)
+mean(subset(all_scores, method == "ibm" & name == "Specificity" & year %in% c(2004:2007))$value)
+
 ## TPR and FPR with threshold
 psens <- ggplot(all_scores_th, aes(x = year, y = value, colour = method)) +
   geom_point() +
   geom_line(aes(group = interaction(method))) +
   facet_wrap(vars(name)) +
   theme_bw() +
-  xlab("") +
+  ylab("") +
   scale_colour_manual(breaks = c("ibm", "rrw"), values = c(ibm.col, rrw.col), name = element_blank()) +
   theme(text = element_text(size = 10),
         # title = element_text(size = 7),
