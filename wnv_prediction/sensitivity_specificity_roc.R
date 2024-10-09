@@ -9,10 +9,12 @@ here_dir <- here("wnv_prediction")
 library(sf)
 counties <- st_read(file.path(here_dir, "cb_2018_us_county_500k.shp"), quiet=T)
 
+threshold <- 0.5
 
 ## Extract incidence and prediction for all years
 all_inc_and_pred <- NULL
 all_scores <- NULL
+all_scores_th <- NULL
 for (year in 2000:2007) {
   inc_and_pred <- data.frame(County = counties$GEOID)
   ## true incidence
@@ -22,6 +24,7 @@ for (year in 2000:2007) {
   inc_and_pred$label <- (inc_and_pred$Incidence >= 1) + 0
   ## predictions
   score <- NULL
+  score_th <- NULL
   for (method in c("rrw", "ibm")) {
     pred_method <- read.table(file.path(here_dir, year, method, paste0("wnv_prediction_", year, ".csv")), header = T, sep = ",")
     ## Empirical Cumulative Distribution Function
@@ -37,16 +40,28 @@ for (year in 2000:2007) {
                             sum(inc_and_pred[[method]] == 0 & inc_and_pred$Incidence == 0) / sum(inc_and_pred$Incidence == 0),
                             method,
                             year))
+    # scores
+    score_th <- rbind(score_th, c(sum(inc_and_pred[[paste0(method, "_norm")]] > threshold & inc_and_pred$Incidence > 0) / sum(inc_and_pred$Incidence > 0),
+                                  sum(inc_and_pred[[paste0(method, "_norm")]] <= threshold & inc_and_pred$Incidence == 0) / sum(inc_and_pred$Incidence == 0),
+                                  method,
+                                  year))
   }
   score <- as.data.frame(score)
   colnames(score) <- c("Sensitivity", "Specificity", "method", "year")
+  score_th <- as.data.frame(score_th)
+  colnames(score_th) <- c("Sensitivity", "Specificity", "method", "year")
   # store
   inc_and_pred$year <- year
   all_inc_and_pred <- rbind(all_inc_and_pred, inc_and_pred)
   all_scores <- rbind(all_scores, score)
+  all_scores_th <- rbind(all_scores_th, score_th)
 }
 all_scores <- tidyr::pivot_longer(as.data.frame(all_scores), cols = c("Sensitivity", "Specificity"))
 all_scores$value <- as.numeric(all_scores$value)
+all_scores_th <- tidyr::pivot_longer(as.data.frame(all_scores_th), cols = c("Sensitivity", "Specificity"))
+all_scores_th$value <- as.numeric(all_scores_th$value)
+
+summary(all_inc_and_pred)
 
 ################################################################################
 ## Plot
@@ -78,14 +93,8 @@ proc <- function(this_year) {
   if (this_year == 2000) legend("bottomright", legend = c("ibm", "rrw"), fill = c(ibm.col, rrw.col), border = FALSE, box.lty = 0)
 }
 
-
-summary(all_inc_and_pred)
-
 library(cowplot)
 library(ggplot2)
-ggdraw(function() proc(2000))
-ggdraw(function() proc(2007))
-
 plot_all_roc <- plot_grid(ggdraw(function() proc(2000)), ggdraw(function() proc(2001)), ggdraw(function() proc(2002)), ggdraw(function() proc(2003)),
                           ggdraw(function() proc(2004)), ggdraw(function() proc(2005)), ggdraw(function() proc(2006)), ggdraw(function() proc(2007)),
                           # labels = paste0("(", letters[1:8], ")"),
@@ -102,7 +111,7 @@ ggsave(filename = file.path(here_dir, "roc_curves.pdf"),
        height = twocolumnwidth / 2,
        unit = "in")
 
-## TPR and FPR
+## TPR and FPR with threshold 0
 psens <- ggplot(all_scores, aes(x = year, y = value, colour = method)) +
   geom_point() +
   geom_line(aes(group = interaction(method))) +
@@ -125,6 +134,34 @@ psens <- ggplot(all_scores, aes(x = year, y = value, colour = method)) +
 
 twocolumnwidth <- 10
 ggsave(filename = file.path(here_dir, "sensitivity_specificity.pdf"),
+       plot = psens,
+       width = twocolumnwidth / 2,
+       height = twocolumnwidth / 4,
+       unit = "in")
+
+## TPR and FPR with threshold
+psens <- ggplot(all_scores_th, aes(x = year, y = value, colour = method)) +
+  geom_point() +
+  geom_line(aes(group = interaction(method))) +
+  facet_wrap(vars(name)) +
+  theme_bw() +
+  xlab("") +
+  scale_colour_manual(breaks = c("ibm", "rrw"), values = c(ibm.col, rrw.col), name = element_blank()) +
+  theme(text = element_text(size = 10),
+        # title = element_text(size = 7),
+        # panel.grid.minor = element_blank(),
+        legend.position = "inside",
+        legend.position.inside = c(0.01, 0.01),
+        legend.justification = c("left", "bottom"),
+        legend.key.size = unit(10, 'pt'),
+        strip.placement = "outside",
+        strip.background = element_blank(),
+        # plot.margin = unit(c(0.1,0.1,-0.31,-0.5), "cm"),
+        # axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)
+  )
+
+twocolumnwidth <- 10
+ggsave(filename = file.path(here_dir, "sensitivity_specificity_threshold.pdf"),
        plot = psens,
        width = twocolumnwidth / 2,
        height = twocolumnwidth / 4,
