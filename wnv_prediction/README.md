@@ -70,7 +70,10 @@ and run the following: `python3 ./predict_cleanup.py`.
 
 Files in CSV format that contain prediction data can then be loaded on [EvoLaps](https://www.evolaps.org/evolaps42/index.html) so as to visualize them. The file 'usa-with-county-boundaries_1127.json' containing the boundaries of counties needs to be loaded beforehand.
 
+## Sensitivity and specificity analysis
 
+R script `sensitivity_specificity_roc.R` takes the predicted values and the 
+true inference data, and computes associated empirical sensitivity, specificity and ROC curves.
 
 
 
