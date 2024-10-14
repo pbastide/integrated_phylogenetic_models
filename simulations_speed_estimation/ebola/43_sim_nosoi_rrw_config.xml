@@ -1,0 +1,470 @@
+<phyrex run.id="rrw" output.file="43_sim_nosoi" mcmc.chain.len="2E+8" mcmc.sample.every="1E+4" mcmc.print.every="1E+4" mcmc.burnin="1E+6" mutmap="no" ignore.sequences="no" mcmc.output.trees="yes" mcmc.verbose="no">
+<spatialmodel name="rrw+gamma" rw.prior.distrib="flat" rw.root.var.location="1E+2" sampling="detection" integrateAncestralLocations="true" distance.type="greatcircle" observational.model="no">
+</spatialmodel>
+
+
+<lineagerates model="lognormal" autocor.prior.rate="100">
+</lineagerates>
+
+
+<treegenerating model="coalescent" neff.prior.distrib="flat" fix.node.ages="no">
+</treegenerating>
+
+
+<clockrate init.value="0.00494393476044852" opt.clock="yes">
+</clockrate>
+
+
+<topology>
+	<instance id="T1" init.tree="BioNJ">
+	</instance>
+</topology>
+
+
+<ratematrices id="RM1">
+	<instance id="M1" model="HKY85" optimise.tstv="yes">
+	</instance>
+</ratematrices>
+
+
+<siterates id="SR1">
+	<instance id="R1" init.value="1.0">
+	</instance>
+	<weights id="D1" family="freerates">
+		<instance appliesto="R1" value="0.25">
+		</instance>
+	</weights>
+</siterates>
+
+
+<equfreqs id="EF1">
+	<instance id="F1" optimise.freqs="no">
+	</instance>
+</equfreqs>
+
+
+<branchlengths id="BL1">
+	<instance id="L1" optimise.lens="yes">
+	</instance>
+</branchlengths>
+
+
+<partitionelem id="partition1" file.name="43_sim_nosoi_seq.txt" data.type="nt" interleaved="no">
+	<mixtureelem list="T1">
+	</mixtureelem>
+	<mixtureelem list="M1">
+	</mixtureelem>
+	<mixtureelem list="F1">
+	</mixtureelem>
+	<mixtureelem list="R1">
+	</mixtureelem>
+	<mixtureelem list="L1">
+	</mixtureelem>
+</partitionelem>
+
+
+<coordinates id="coordinates" file.name="43_sim_nosoi_coord.txt">
+</coordinates>
+
+
+<clade id="clade_50">
+	<taxon value="H-176_360"/>
+</clade>
+<calibration id="calib_50">
+	<lower>360</lower>
+	<upper>360</upper>
+	<appliesto clade.id="clade_50"/>
+</calibration>
+<clade id="clade_49">
+	<taxon value="H-175_359"/>
+</clade>
+<calibration id="calib_49">
+	<lower>359</lower>
+	<upper>359</upper>
+	<appliesto clade.id="clade_49"/>
+</calibration>
+<clade id="clade_48">
+	<taxon value="H-170_347"/>
+</clade>
+<calibration id="calib_48">
+	<lower>347</lower>
+	<upper>347</upper>
+	<appliesto clade.id="clade_48"/>
+</calibration>
+<clade id="clade_47">
+	<taxon value="H-167_341"/>
+</clade>
+<calibration id="calib_47">
+	<lower>341</lower>
+	<upper>341</upper>
+	<appliesto clade.id="clade_47"/>
+</calibration>
+<clade id="clade_46">
+	<taxon value="H-157_327"/>
+</clade>
+<calibration id="calib_46">
+	<lower>327</lower>
+	<upper>327</upper>
+	<appliesto clade.id="clade_46"/>
+</calibration>
+<clade id="clade_45">
+	<taxon value="H-156_333"/>
+</clade>
+<calibration id="calib_45">
+	<lower>333</lower>
+	<upper>333</upper>
+	<appliesto clade.id="clade_45"/>
+</calibration>
+<clade id="clade_44">
+	<taxon value="H-155_325"/>
+</clade>
+<calibration id="calib_44">
+	<lower>325</lower>
+	<upper>325</upper>
+	<appliesto clade.id="clade_44"/>
+</calibration>
+<clade id="clade_43">
+	<taxon value="H-152_315"/>
+</clade>
+<calibration id="calib_43">
+	<lower>315</lower>
+	<upper>315</upper>
+	<appliesto clade.id="clade_43"/>
+</calibration>
+<clade id="clade_42">
+	<taxon value="H-147_330"/>
+</clade>
+<calibration id="calib_42">
+	<lower>330</lower>
+	<upper>330</upper>
+	<appliesto clade.id="clade_42"/>
+</calibration>
+<clade id="clade_41">
+	<taxon value="H-140_324"/>
+</clade>
+<calibration id="calib_41">
+	<lower>324</lower>
+	<upper>324</upper>
+	<appliesto clade.id="clade_41"/>
+</calibration>
+<clade id="clade_40">
+	<taxon value="H-135_294"/>
+</clade>
+<calibration id="calib_40">
+	<lower>294</lower>
+	<upper>294</upper>
+	<appliesto clade.id="clade_40"/>
+</calibration>
+<clade id="clade_39">
+	<taxon value="H-134_320"/>
+</clade>
+<calibration id="calib_39">
+	<lower>320</lower>
+	<upper>320</upper>
+	<appliesto clade.id="clade_39"/>
+</calibration>
+<clade id="clade_38">
+	<taxon value="H-132_298"/>
+</clade>
+<calibration id="calib_38">
+	<lower>298</lower>
+	<upper>298</upper>
+	<appliesto clade.id="clade_38"/>
+</calibration>
+<clade id="clade_37">
+	<taxon value="H-130_311"/>
+</clade>
+<calibration id="calib_37">
+	<lower>311</lower>
+	<upper>311</upper>
+	<appliesto clade.id="clade_37"/>
+</calibration>
+<clade id="clade_36">
+	<taxon value="H-123_289"/>
+</clade>
+<calibration id="calib_36">
+	<lower>289</lower>
+	<upper>289</upper>
+	<appliesto clade.id="clade_36"/>
+</calibration>
+<clade id="clade_35">
+	<taxon value="H-122_298"/>
+</clade>
+<calibration id="calib_35">
+	<lower>298</lower>
+	<upper>298</upper>
+	<appliesto clade.id="clade_35"/>
+</calibration>
+<clade id="clade_34">
+	<taxon value="H-121_278"/>
+</clade>
+<calibration id="calib_34">
+	<lower>278</lower>
+	<upper>278</upper>
+	<appliesto clade.id="clade_34"/>
+</calibration>
+<clade id="clade_33">
+	<taxon value="H-110_269"/>
+</clade>
+<calibration id="calib_33">
+	<lower>269</lower>
+	<upper>269</upper>
+	<appliesto clade.id="clade_33"/>
+</calibration>
+<clade id="clade_32">
+	<taxon value="H-109_282"/>
+</clade>
+<calibration id="calib_32">
+	<lower>282</lower>
+	<upper>282</upper>
+	<appliesto clade.id="clade_32"/>
+</calibration>
+<clade id="clade_31">
+	<taxon value="H-105_274"/>
+</clade>
+<calibration id="calib_31">
+	<lower>274</lower>
+	<upper>274</upper>
+	<appliesto clade.id="clade_31"/>
+</calibration>
+<clade id="clade_30">
+	<taxon value="H-97_270"/>
+</clade>
+<calibration id="calib_30">
+	<lower>270</lower>
+	<upper>270</upper>
+	<appliesto clade.id="clade_30"/>
+</calibration>
+<clade id="clade_29">
+	<taxon value="H-94_263"/>
+</clade>
+<calibration id="calib_29">
+	<lower>263</lower>
+	<upper>263</upper>
+	<appliesto clade.id="clade_29"/>
+</calibration>
+<clade id="clade_28">
+	<taxon value="H-92_261"/>
+</clade>
+<calibration id="calib_28">
+	<lower>261</lower>
+	<upper>261</upper>
+	<appliesto clade.id="clade_28"/>
+</calibration>
+<clade id="clade_27">
+	<taxon value="H-83_248"/>
+</clade>
+<calibration id="calib_27">
+	<lower>248</lower>
+	<upper>248</upper>
+	<appliesto clade.id="clade_27"/>
+</calibration>
+<clade id="clade_26">
+	<taxon value="H-81_239"/>
+</clade>
+<calibration id="calib_26">
+	<lower>239</lower>
+	<upper>239</upper>
+	<appliesto clade.id="clade_26"/>
+</calibration>
+<clade id="clade_25">
+	<taxon value="H-78_227"/>
+</clade>
+<calibration id="calib_25">
+	<lower>227</lower>
+	<upper>227</upper>
+	<appliesto clade.id="clade_25"/>
+</calibration>
+<clade id="clade_24">
+	<taxon value="H-76_228"/>
+</clade>
+<calibration id="calib_24">
+	<lower>228</lower>
+	<upper>228</upper>
+	<appliesto clade.id="clade_24"/>
+</calibration>
+<clade id="clade_23">
+	<taxon value="H-70_220"/>
+</clade>
+<calibration id="calib_23">
+	<lower>220</lower>
+	<upper>220</upper>
+	<appliesto clade.id="clade_23"/>
+</calibration>
+<clade id="clade_22">
+	<taxon value="H-68_188"/>
+</clade>
+<calibration id="calib_22">
+	<lower>188</lower>
+	<upper>188</upper>
+	<appliesto clade.id="clade_22"/>
+</calibration>
+<clade id="clade_21">
+	<taxon value="H-63_197"/>
+</clade>
+<calibration id="calib_21">
+	<lower>197</lower>
+	<upper>197</upper>
+	<appliesto clade.id="clade_21"/>
+</calibration>
+<clade id="clade_20">
+	<taxon value="H-62_189"/>
+</clade>
+<calibration id="calib_20">
+	<lower>189</lower>
+	<upper>189</upper>
+	<appliesto clade.id="clade_20"/>
+</calibration>
+<clade id="clade_19">
+	<taxon value="H-60_191"/>
+</clade>
+<calibration id="calib_19">
+	<lower>191</lower>
+	<upper>191</upper>
+	<appliesto clade.id="clade_19"/>
+</calibration>
+<clade id="clade_18">
+	<taxon value="H-54_166"/>
+</clade>
+<calibration id="calib_18">
+	<lower>166</lower>
+	<upper>166</upper>
+	<appliesto clade.id="clade_18"/>
+</calibration>
+<clade id="clade_17">
+	<taxon value="H-51_180"/>
+</clade>
+<calibration id="calib_17">
+	<lower>180</lower>
+	<upper>180</upper>
+	<appliesto clade.id="clade_17"/>
+</calibration>
+<clade id="clade_16">
+	<taxon value="H-50_173"/>
+</clade>
+<calibration id="calib_16">
+	<lower>173</lower>
+	<upper>173</upper>
+	<appliesto clade.id="clade_16"/>
+</calibration>
+<clade id="clade_15">
+	<taxon value="H-49_155"/>
+</clade>
+<calibration id="calib_15">
+	<lower>155</lower>
+	<upper>155</upper>
+	<appliesto clade.id="clade_15"/>
+</calibration>
+<clade id="clade_14">
+	<taxon value="H-45_167"/>
+</clade>
+<calibration id="calib_14">
+	<lower>167</lower>
+	<upper>167</upper>
+	<appliesto clade.id="clade_14"/>
+</calibration>
+<clade id="clade_13">
+	<taxon value="H-42_161"/>
+</clade>
+<calibration id="calib_13">
+	<lower>161</lower>
+	<upper>161</upper>
+	<appliesto clade.id="clade_13"/>
+</calibration>
+<clade id="clade_12">
+	<taxon value="H-37_144"/>
+</clade>
+<calibration id="calib_12">
+	<lower>144</lower>
+	<upper>144</upper>
+	<appliesto clade.id="clade_12"/>
+</calibration>
+<clade id="clade_11">
+	<taxon value="H-35_126"/>
+</clade>
+<calibration id="calib_11">
+	<lower>126</lower>
+	<upper>126</upper>
+	<appliesto clade.id="clade_11"/>
+</calibration>
+<clade id="clade_10">
+	<taxon value="H-34_129"/>
+</clade>
+<calibration id="calib_10">
+	<lower>129</lower>
+	<upper>129</upper>
+	<appliesto clade.id="clade_10"/>
+</calibration>
+<clade id="clade_9">
+	<taxon value="H-32_114"/>
+</clade>
+<calibration id="calib_9">
+	<lower>114</lower>
+	<upper>114</upper>
+	<appliesto clade.id="clade_9"/>
+</calibration>
+<clade id="clade_8">
+	<taxon value="H-29_128"/>
+</clade>
+<calibration id="calib_8">
+	<lower>128</lower>
+	<upper>128</upper>
+	<appliesto clade.id="clade_8"/>
+</calibration>
+<clade id="clade_7">
+	<taxon value="H-20_110"/>
+</clade>
+<calibration id="calib_7">
+	<lower>110</lower>
+	<upper>110</upper>
+	<appliesto clade.id="clade_7"/>
+</calibration>
+<clade id="clade_6">
+	<taxon value="H-13_86"/>
+</clade>
+<calibration id="calib_6">
+	<lower>86</lower>
+	<upper>86</upper>
+	<appliesto clade.id="clade_6"/>
+</calibration>
+<clade id="clade_5">
+	<taxon value="H-12_78"/>
+</clade>
+<calibration id="calib_5">
+	<lower>78</lower>
+	<upper>78</upper>
+	<appliesto clade.id="clade_5"/>
+</calibration>
+<clade id="clade_4">
+	<taxon value="H-11_85"/>
+</clade>
+<calibration id="calib_4">
+	<lower>85</lower>
+	<upper>85</upper>
+	<appliesto clade.id="clade_4"/>
+</calibration>
+<clade id="clade_3">
+	<taxon value="H-8_60"/>
+</clade>
+<calibration id="calib_3">
+	<lower>60</lower>
+	<upper>60</upper>
+	<appliesto clade.id="clade_3"/>
+</calibration>
+<clade id="clade_2">
+	<taxon value="H-5_58"/>
+</clade>
+<calibration id="calib_2">
+	<lower>58</lower>
+	<upper>58</upper>
+	<appliesto clade.id="clade_2"/>
+</calibration>
+<clade id="clade_1">
+	<taxon value="H-3_52"/>
+</clade>
+<calibration id="calib_1">
+	<lower>52</lower>
+	<upper>52</upper>
+	<appliesto clade.id="clade_1"/>
+</calibration>
+</phyrex>

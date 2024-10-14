@@ -34,7 +34,7 @@
 
 library(ape)
 library(here)
-here_dir <- here("tests_likelihood")
+here_dir <- here("likelihood_test")
 
 # Utility functions
 source(here(here_dir, "utils.R"))

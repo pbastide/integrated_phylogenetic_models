@@ -39,20 +39,31 @@ All the `R` scripts assume that the working directory is the root directory
 		* `results`: files produced by the R script.
 		
 * `simulations_speed_estimation`: simulation study for the velocity estimation.
-	* `datagen.pl`: Script for data simulation using the Spatial Lambda Fleming Viot process.
-	* `ibm`: repository containing `xml` files and associated simulated data.
-	* `sim_ibm.pl`: script to run the `xml` files using `PhyREX`.
-	* `postprocessslfv.R`: `R` script to plot the results.
+  * `ebola`: Speed estimation using "Ebola-like" data and `nosoi` simulation.
+    * `simulations_ebola_nosoi.R`: R script to simulate data using [`nosoi`](https://github.com/slequime/nosoi).
+    * `sim_ibm.pl`: script to run the `xml` files using `PhyREX`.
+	  * `postprocesnosoi.R`: `R` script to plot the results.
+  * `ibm_fixed_tree`: Velocity estimation using IBM simulation.
+    * `ibm_sim.R`: R script to simulate data using an IBM process on a fixed WNV tree and to perform BEAST inference.
+    * `utils.R`: associated R utility functions.
+	  * `beast/sim_ibm_beast_fixedtree.xml`: `xml` pattern file used for `beast` inference.
+  * `slvf`: Speed estimation using Spatial Lambda Fleming Viot process simulation.
+	  * `datagen.pl`: Script for data simulation using the Spatial Lambda Fleming Viot process.
+	  * `sim_ibm.pl`: script to run the `xml` files using `PhyREX`.
+	  * `postprocessslfv.R`: `R` script to plot the results.
 
 * `plot_trajectories/simulations_trajectories.R`: plot trajectories of integrated processes.
 
 * `wnv_prediction`: predictions using tip velocities with PhyREX.
   * `2000`, `2001`, `2002`, `2003`, `2004`, `2005`, `2006`, `2007`: WNV data, split by years.
-  * `predict.cleanup.py`: script to make predictions from the IBM model with `PhyREX`.
-  * `map_predict.R`: script to plot the predictions.
   * `cb_2018_us_county_500k.*`: US counties.
   * `WNV_RRW_tree_1.xml`: `BEAST` xml configuration file from [Dellicour et al 2020]([here](https://github.com/sdellicour/wnv_north_america/blob/master/Scripts_%26_data/Continuous_phylogeographic_analyses/WNV_RRW_tree_1.xml)).
-  	
+  * `prep_config_files.py`: script for preparing `PhyREX` xmls.
+  * `multi_phyrex.py`: script for `PhyREX` IBM and RRW analyses of the data.
+  * `predict_cleanup.py`: script to make predictions from the IBM and RRW models with `PhyREX`.
+  * `map_predict.R`: script to plot the predictions.
+  * `sensitivity_specificity_roc.R`: script for sensitivity and specificity analyses.
+  
 ## Requirements
 
 * `BEAST`: http://beast.community/installing. 

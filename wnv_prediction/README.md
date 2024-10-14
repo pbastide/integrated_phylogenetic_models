@@ -42,14 +42,15 @@ mkdir 2006; mv wnv_config_*.xml coord.txt seq.txt 2006/.;
 ./wnvcv --xml=./WNV_RRW_tree_1.xml 2007 1990 1.0
 mkdir 2007; mv wnv_config_*.xml coord.txt seq.txt 2007/.;
 ```
+Generate PhyREX configuration files for IBM and RRW models using `python3 ./prep_config_files.py` (from the `wnv_prediction/`folder). The XML files hence generated are provided in the different year folders. Each of these folders has a `rrw/`and and a `ibm/`sub-folder that provides the PhyREX configuration files. Coordinates and sequence files are also provided in each year folder. 
 
 ## Runing `PhyREX` on each `xml` file
 
 Run `PhyREX` on each produced file using the command:
 ```
-cd YEAR; phyrex phyrex --xml=./wnv_config_XXX.xml;
+python3 ./multi_phyrex.py
 ```
-(replacing `YEAR` and `XXX` by the appropriate quantities.)
+Note that you will need to have a working `phyrex` binary file in the `integrated_phylogenetic_models/phyrex_install/`directory.
 
 ## Predicting WNV dispersion
 
@@ -67,60 +68,12 @@ mv phyml/src/test predict;
 
 and run the following: `python3 ./predict_cleanup.py`.
 
-Alternatively, you may use the code below: 
+Files in CSV format that contain prediction data can then be loaded on [EvoLaps](https://www.evolaps.org/evolaps42/index.html) so as to visualize them. The file 'usa-with-county-boundaries_1127.json' containing the boundaries of counties needs to be loaded beforehand. The year/model folders provide files named `wnv_prediction_year.csv` that give the list of counties and the corresponding predicted occurence. These files can be processed by EvoLaps. Similarly, files named `wnv_incidence_year` give the occurence deriving from observation from the [CDC data] (https://www.cdc.gov/west-nile-virus/data-maps/historic-data.html).
 
-```
-./predict -u ./2000/WNV_2000_phyrex_tree_ibm.txt --xml=./2000/WNV_phyrex_2000.xml 2000 1999 0.2 > ./2000/raw_predict
-grep XXX ./2000/raw_predict > ./2000/clean_predict
-find ./2000/clean_predict -type f -exec sed -i -e 's/. XXX/ /g' {} \;
+## Sensitivity and specificity analysis
 
-./predict -u ./2001/WNV_2001_phyrex_tree_ibm.txt --xml=./2001/WNV_phyrex_2001.xml 2001 2000 0.2 > ./2001/raw_predict
-grep XXX ./2001/raw_predict > ./2001/clean_predict
-find ./2001/clean_predict -type f -exec sed -i -e 's/. XXX/ /g' {} \;
-
-./predict -u ./2002/WNV_2002_phyrex_tree_ibm.txt --xml=./2002/WNV_phyrex_2002.xml 2002 2001 0.2 > ./2002/raw_predict
-grep XXX ./2002/raw_predict > ./2002/clean_predict
-find ./2002/clean_predict -type f -exec sed -i -e 's/. XXX/ /g' {} \;
-
-./predict -u ./2003/WNV_2003_phyrex_tree_ibm.txt --xml=./2003/WNV_phyrex_2003.xml 2003 2002 0.2 > ./2003/raw_predict
-grep XXX ./2003/raw_predict > ./2003/clean_predict
-find ./2003/clean_predict -type f -exec sed -i -e 's/. XXX/ /g' {} \;
-
-./predict -u ./2004/WNV_2004_phyrex_tree_ibm.txt --xml=./2004/WNV_phyrex_2004.xml 2004 2003 0.2 > ./2004/raw_predict
-grep XXX ./2004/raw_predict > ./2004/clean_predict
-find ./2004/clean_predict -type f -exec sed -i -e 's/. XXX/ /g' {} \;
-
-./predict -u ./2005/WNV_2005_phyrex_tree_ibm.txt --xml=./2005/WNV_phyrex_2005.xml 2005 2004 0.2 > ./2005/raw_predict
-grep XXX ./2005/raw_predict > ./2005/clean_predict
-find ./2005/clean_predict -type f -exec sed -i -e 's/. XXX/ /g' {} \;
-
-./predict -u ./2006/WNV_2006_phyrex_tree_ibm.txt --xml=./2006/WNV_phyrex_2006.xml 2006 2005 0.2 > ./2006/raw_predict
-grep XXX ./2006/raw_predict > ./2006/clean_predict
-find ./2006/clean_predict -type f -exec sed -i -e 's/. XXX/ /g' {} \;
-
-./predict -u ./2007/WNV_2007_phyrex_tree_ibm.txt --xml=./2007/WNV_phyrex_2007.xml 2007 2006 0.2 > ./2007/raw_predict
-grep XXX ./2007/raw_predict > ./2007/clean_predict
-find ./2007/clean_predict -type f -exec sed -i -e 's/. XXX/ /g' {} \;
-```
-
-and then reformat the county/year incidence files using the following: 
-
-```
-find ./2000/wnv_incidence_2000.csv -type f -exec sed -i -e 's/;/,/g' {} \;
-find ./2001/wnv_incidence_2001.csv -type f -exec sed -i -e 's/;/,/g' {} \;
-find ./2002/wnv_incidence_2002.csv -type f -exec sed -i -e 's/;/,/g' {} \;
-find ./2003/wnv_incidence_2003.csv -type f -exec sed -i -e 's/;/,/g' {} \;
-find ./2004/wnv_incidence_2004.csv -type f -exec sed -i -e 's/;/,/g' {} \;
-find ./2005/wnv_incidence_2005.csv -type f -exec sed -i -e 's/;/,/g' {} \;
-find ./2006/wnv_incidence_2006.csv -type f -exec sed -i -e 's/;/,/g' {} \;
-find ./2007/wnv_incidence_2007.csv -type f -exec sed -i -e 's/;/,/g' {} \;
-```
-
-Then run `map_predict.R`
-
-
-
-
+R script `sensitivity_specificity_roc.R` takes the predicted values and the 
+true inference data, and computes associated empirical sensitivity, specificity and ROC curves.
 
 
 

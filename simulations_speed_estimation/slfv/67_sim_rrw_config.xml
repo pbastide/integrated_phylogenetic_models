@@ -1,0 +1,749 @@
+
+<phyrex run.id="rrw" output.file="67" mcmc.chain.len="1E+8" mcmc.sample.every="1E+4" mcmc.print.every="1E+4" mcmc.burnin="1E+5" mutmap="no" mcmc.output.trees="no" mcmc.verbose="no">
+	<spatialmodel name="rrw+gamma" rw.prior.distrib="flat" rw.root.var.location="1E+2"  sampling="detection" integrateAncestralLocations="true" distance.type="euclidean" observational.model="no">
+	</spatialmodel>
+	<lineagerates model="lognormal" autocor.prior.rate="100">
+	</lineagerates>
+	<treegenerating model="coalescent" neff.prior.distrib="flat" fix.node.ages="no">
+	</treegenerating>
+	<clockrate init.value="0.002785" opt.clock="no">
+	</clockrate>
+	<topology>
+		<instance id="T1" init.tree="BioNJ">
+		</instance>
+	</topology>
+	<ratematrices id="RM1">
+		<instance id="M1" model="HKY85" optimise.tstv="yes">
+		</instance>
+	</ratematrices>
+	<siterates id="SR1">
+		<instance id="R1" init.value="1.0">
+		</instance>
+		<weights id="D1" family="freerates">
+			<instance appliesto="R1" value="0.25">
+			</instance>
+		</weights>
+	</siterates>
+	<equfreqs id="EF1">
+		<instance id="F1" optimise.freqs="no">
+		</instance>
+	</equfreqs>
+	<branchlengths id="BL1">
+		<instance id="L1" optimise.lens="yes">
+		</instance>
+	</branchlengths>
+	<partitionelem id="partition1" file.name="./67_sim_slfv_data.txt" data.type="nt" interleaved="no">
+		<mixtureelem list="T1">
+		</mixtureelem>
+		<mixtureelem list="M1">
+		</mixtureelem>
+		<mixtureelem list="F1">
+		</mixtureelem>
+		<mixtureelem list="R1">
+		</mixtureelem>
+		<mixtureelem list="L1">
+		</mixtureelem>
+	</partitionelem>
+	<coordinates id="coordinates" file.name="./67_sim_slfv_coord.txt">
+	</coordinates>
+	<clade id="clad1">
+		<taxon value="thqbp">
+		</taxon>
+	</clade>
+	<calibration id="cal1">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad1">
+		</appliesto>
+	</calibration>
+	<clade id="clad2">
+		<taxon value="qhlbo">
+		</taxon>
+	</clade>
+	<calibration id="cal2">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad2">
+		</appliesto>
+	</calibration>
+	<clade id="clad3">
+		<taxon value="fheun">
+		</taxon>
+	</clade>
+	<calibration id="cal3">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad3">
+		</appliesto>
+	</calibration>
+	<clade id="clad4">
+		<taxon value="gqsfq">
+		</taxon>
+	</clade>
+	<calibration id="cal4">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad4">
+		</appliesto>
+	</calibration>
+	<clade id="clad5">
+		<taxon value="hlufn">
+		</taxon>
+	</clade>
+	<calibration id="cal5">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad5">
+		</appliesto>
+	</calibration>
+	<clade id="clad6">
+		<taxon value="qbfdi">
+		</taxon>
+	</clade>
+	<calibration id="cal6">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad6">
+		</appliesto>
+	</calibration>
+	<clade id="clad7">
+		<taxon value="eufxr">
+		</taxon>
+	</clade>
+	<calibration id="cal7">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad7">
+		</appliesto>
+	</calibration>
+	<clade id="clad8">
+		<taxon value="ytiqe">
+		</taxon>
+	</clade>
+	<calibration id="cal8">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad8">
+		</appliesto>
+	</calibration>
+	<clade id="clad9">
+		<taxon value="mtamy">
+		</taxon>
+	</clade>
+	<calibration id="cal9">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad9">
+		</appliesto>
+	</calibration>
+	<clade id="clad10">
+		<taxon value="ccycg">
+		</taxon>
+	</clade>
+	<calibration id="cal10">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad10">
+		</appliesto>
+	</calibration>
+	<clade id="clad11">
+		<taxon value="uwgcd">
+		</taxon>
+	</clade>
+	<calibration id="cal11">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad11">
+		</appliesto>
+	</calibration>
+	<clade id="clad12">
+		<taxon value="nempn">
+		</taxon>
+	</clade>
+	<calibration id="cal12">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad12">
+		</appliesto>
+	</calibration>
+	<clade id="clad13">
+		<taxon value="evkvp">
+		</taxon>
+	</clade>
+	<calibration id="cal13">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad13">
+		</appliesto>
+	</calibration>
+	<clade id="clad14">
+		<taxon value="akepx">
+		</taxon>
+	</clade>
+	<calibration id="cal14">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad14">
+		</appliesto>
+	</calibration>
+	<clade id="clad15">
+		<taxon value="pcyek">
+		</taxon>
+	</clade>
+	<calibration id="cal15">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad15">
+		</appliesto>
+	</calibration>
+	<clade id="clad16">
+		<taxon value="gkvdb">
+		</taxon>
+	</clade>
+	<calibration id="cal16">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad16">
+		</appliesto>
+	</calibration>
+	<clade id="clad17">
+		<taxon value="uwvfn">
+		</taxon>
+	</clade>
+	<calibration id="cal17">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad17">
+		</appliesto>
+	</calibration>
+	<clade id="clad18">
+		<taxon value="qhmps">
+		</taxon>
+	</clade>
+	<calibration id="cal18">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad18">
+		</appliesto>
+	</calibration>
+	<clade id="clad19">
+		<taxon value="qbevb">
+		</taxon>
+	</clade>
+	<calibration id="cal19">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad19">
+		</appliesto>
+	</calibration>
+	<clade id="clad20">
+		<taxon value="pdwae">
+		</taxon>
+	</clade>
+	<calibration id="cal20">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad20">
+		</appliesto>
+	</calibration>
+	<clade id="clad21">
+		<taxon value="wrojj">
+		</taxon>
+	</clade>
+	<calibration id="cal21">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad21">
+		</appliesto>
+	</calibration>
+	<clade id="clad22">
+		<taxon value="asfdr">
+		</taxon>
+	</clade>
+	<calibration id="cal22">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad22">
+		</appliesto>
+	</calibration>
+	<clade id="clad23">
+		<taxon value="ucbcs">
+		</taxon>
+	</clade>
+	<calibration id="cal23">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad23">
+		</appliesto>
+	</calibration>
+	<clade id="clad24">
+		<taxon value="jtawd">
+		</taxon>
+	</clade>
+	<calibration id="cal24">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad24">
+		</appliesto>
+	</calibration>
+	<clade id="clad25">
+		<taxon value="nxxrs">
+		</taxon>
+	</clade>
+	<calibration id="cal25">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad25">
+		</appliesto>
+	</calibration>
+	<clade id="clad26">
+		<taxon value="whinr">
+		</taxon>
+	</clade>
+	<calibration id="cal26">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad26">
+		</appliesto>
+	</calibration>
+	<clade id="clad27">
+		<taxon value="qjyto">
+		</taxon>
+	</clade>
+	<calibration id="cal27">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad27">
+		</appliesto>
+	</calibration>
+	<clade id="clad28">
+		<taxon value="hogyk">
+		</taxon>
+	</clade>
+	<calibration id="cal28">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad28">
+		</appliesto>
+	</calibration>
+	<clade id="clad29">
+		<taxon value="wthvr">
+		</taxon>
+	</clade>
+	<calibration id="cal29">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad29">
+		</appliesto>
+	</calibration>
+	<clade id="clad30">
+		<taxon value="lhesx">
+		</taxon>
+	</clade>
+	<calibration id="cal30">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad30">
+		</appliesto>
+	</calibration>
+	<clade id="clad31">
+		<taxon value="riomg">
+		</taxon>
+	</clade>
+	<calibration id="cal31">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad31">
+		</appliesto>
+	</calibration>
+	<clade id="clad32">
+		<taxon value="rmyib">
+		</taxon>
+	</clade>
+	<calibration id="cal32">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad32">
+		</appliesto>
+	</calibration>
+	<clade id="clad33">
+		<taxon value="ouyey">
+		</taxon>
+	</clade>
+	<calibration id="cal33">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad33">
+		</appliesto>
+	</calibration>
+	<clade id="clad34">
+		<taxon value="dyalj">
+		</taxon>
+	</clade>
+	<calibration id="cal34">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad34">
+		</appliesto>
+	</calibration>
+	<clade id="clad35">
+		<taxon value="qaobk">
+		</taxon>
+	</clade>
+	<calibration id="cal35">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad35">
+		</appliesto>
+	</calibration>
+	<clade id="clad36">
+		<taxon value="cxfwo">
+		</taxon>
+	</clade>
+	<calibration id="cal36">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad36">
+		</appliesto>
+	</calibration>
+	<clade id="clad37">
+		<taxon value="oelyd">
+		</taxon>
+	</clade>
+	<calibration id="cal37">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad37">
+		</appliesto>
+	</calibration>
+	<clade id="clad38">
+		<taxon value="mraol">
+		</taxon>
+	</clade>
+	<calibration id="cal38">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad38">
+		</appliesto>
+	</calibration>
+	<clade id="clad39">
+		<taxon value="qfpra">
+		</taxon>
+	</clade>
+	<calibration id="cal39">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad39">
+		</appliesto>
+	</calibration>
+	<clade id="clad40">
+		<taxon value="sdnfy">
+		</taxon>
+	</clade>
+	<calibration id="cal40">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad40">
+		</appliesto>
+	</calibration>
+	<clade id="clad41">
+		<taxon value="lgevk">
+		</taxon>
+	</clade>
+	<calibration id="cal41">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad41">
+		</appliesto>
+	</calibration>
+	<clade id="clad42">
+		<taxon value="mfnqf">
+		</taxon>
+	</clade>
+	<calibration id="cal42">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad42">
+		</appliesto>
+	</calibration>
+	<clade id="clad43">
+		<taxon value="pxmod">
+		</taxon>
+	</clade>
+	<calibration id="cal43">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad43">
+		</appliesto>
+	</calibration>
+	<clade id="clad44">
+		<taxon value="duajd">
+		</taxon>
+	</clade>
+	<calibration id="cal44">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad44">
+		</appliesto>
+	</calibration>
+	<clade id="clad45">
+		<taxon value="wlief">
+		</taxon>
+	</clade>
+	<calibration id="cal45">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad45">
+		</appliesto>
+	</calibration>
+	<clade id="clad46">
+		<taxon value="jpmqa">
+		</taxon>
+	</clade>
+	<calibration id="cal46">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad46">
+		</appliesto>
+	</calibration>
+	<clade id="clad47">
+		<taxon value="xwgfa">
+		</taxon>
+	</clade>
+	<calibration id="cal47">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad47">
+		</appliesto>
+	</calibration>
+	<clade id="clad48">
+		<taxon value="llrta">
+		</taxon>
+	</clade>
+	<calibration id="cal48">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad48">
+		</appliesto>
+	</calibration>
+	<clade id="clad49">
+		<taxon value="mwdos">
+		</taxon>
+	</clade>
+	<calibration id="cal49">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad49">
+		</appliesto>
+	</calibration>
+	<clade id="clad50">
+		<taxon value="bpqja">
+		</taxon>
+	</clade>
+	<calibration id="cal50">
+		<lower>
+		0.000000
+		</lower>
+		<upper>
+		0.000000
+		</upper>
+		<appliesto clade.id="clad50">
+		</appliesto>
+	</calibration>
+</phyrex>
