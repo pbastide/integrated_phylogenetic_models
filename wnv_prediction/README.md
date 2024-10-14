@@ -42,7 +42,7 @@ mkdir 2006; mv wnv_config_*.xml coord.txt seq.txt 2006/.;
 ./wnvcv --xml=./WNV_RRW_tree_1.xml 2007 1990 1.0
 mkdir 2007; mv wnv_config_*.xml coord.txt seq.txt 2007/.;
 ```
-Generate PhyREX configuration files for IBM and RRW models using `python3 ./prep_config_files.py` (from the `wnv_prediction/`folder).
+Generate PhyREX configuration files for IBM and RRW models using `python3 ./prep_config_files.py` (from the `wnv_prediction/`folder). The XML files hence generated are provided in the different year folders. Each of these folders has a `rrw/`and and a `ibm/`sub-folder that provides the PhyREX configuration files. Coordinates and sequence files are also provided in each year folder. 
 
 ## Runing `PhyREX` on each `xml` file
 
