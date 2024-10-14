@@ -68,7 +68,7 @@ mv phyml/src/test predict;
 
 and run the following: `python3 ./predict_cleanup.py`.
 
-Files in CSV format that contain prediction data can then be loaded on [EvoLaps](https://www.evolaps.org/evolaps42/index.html) so as to visualize them. The file 'usa-with-county-boundaries_1127.json' containing the boundaries of counties needs to be loaded beforehand.
+Files in CSV format that contain prediction data can then be loaded on [EvoLaps](https://www.evolaps.org/evolaps42/index.html) so as to visualize them. The file 'usa-with-county-boundaries_1127.json' containing the boundaries of counties needs to be loaded beforehand. The year/model folders provide files named `wnv_prediction_year.csv` that give the list of counties and the corresponding predicted occurence. These files can be processed by EvoLaps. Similarly, files named `wnv_incidence_year` give the occurence deriving from observation from the [CDC data] (https://www.cdc.gov/west-nile-virus/data-maps/historic-data.html).
 
 ## Sensitivity and specificity analysis
 
